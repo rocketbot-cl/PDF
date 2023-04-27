@@ -1,101 +1,47 @@
 {
-    "author":"Danilo Toro - Rocketbot - <danilo.toro@rocketbot.cl>",
+    "author":"Nicolas Garcia",
     "description": "Módulo para realizar acciones con archivos PDF",
+    "description_lang": {
+        "en": "Module to perform actions with PDF files",
+        "es": "Módulo para realizar acciones con archivos PDF",
+        "pr": "Módulo para realizar ações com arquivos PDF"
+    },
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
     "version":"1.0.0",
     "license": "MIT",
-    "homepage":"http://rocketbot.co/",
+    "homepage":"http://rocketbot.com/",
     "linux": true,
     "windows":true,
     "mac":true,
     "docker":true,
     "name": "PDF",
     "dependencies": {
-        "PyPDF2": "1.26.0"
+        "PyPDF2": "2.12.1",
+        "fillpdf": "0.7.2"
     },
     "title": {
         "en": "PDF",
         "es": "PDF",
-        "cn": "PDF"
+        "pr": "PDF"
     },
-    "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxNzAiIGhlaWdodD0iMTcwcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTcwIiB3aWR0aD0iMTI4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxwYXRoIGQ9Ik02My43OTgsMTIxSDU5djIyaDUuNDIyYzMuNzA5LDAsNi41Ni0xLjAyMyw4LjU1NC0yLjg5NmMxLjk5My0xLjg3MSwyLjk5LTQuNjM3LDIuOTktOC4yMDcgICBzLTAuOTk3LTYuMjAyLTIuOTktOC4xMjdDNzAuOTgxLDEyMS44NDYsNjcuOTIzLDEyMSw2My43OTgsMTIxeiIgZmlsbD0iIzIzMUYyMCIvPjxwYXRoIGQ9Ik0zNy43MjEsMTIyLjEzNmMtMS4yNjctMC44ODQtMy4yMzMtMS4xMzYtNS45MDItMS4xMzZIMjd2MTJoNS42NWMyLjcwNCwwLDQuNTQxLTAuNjI2LDUuNTEyLTEuNzE4ICAgYzAuOTcxLTEuMDkzLDEuNDU2LTIuNjMxLDEuNDU2LTQuNzI5QzM5LjYxOCwxMjQuNDU2LDM4Ljk4NSwxMjMuMDIsMzcuNzIxLDEyMi4xMzZ6IiBmaWxsPSIjMjMxRjIwIi8+PHBhdGggZD0iTTEyNy42MTMsMjlsMC4wMDQtMC4wMDRMOTksMC4zNzlWMGgtMC4zNzlsLTAuMTE3LTAuMTE3TDk4LjM4NywwSDEwQzQuNDc4LDAsMCw0LjQ3NywwLDEwdjE1MCAgIGMwLDUuNTIzLDQuNDc4LDEwLDEwLDEwaDEwOGM1LjUyMiwwLDEwLTQuNDc3LDEwLTEwVjI5SDEyNy42MTN6IE00NC4wMTMsMTM2LjgxMUM0MS4zOTUsMTM4Ljg5LDM3LjM5OSwxNDAsMzIuMDI2LDE0MEgyN3YxMGgtOCAgIHYtMzZoMTIuOTIzYzUuNTgxLDAsOS42NDYsMC45MSwxMi4xOTMsMy4wNzZjMi41NDgsMi4xNjcsMy44MjIsNS40NDMsMy44MjIsOS45MzJDNDcuOTM4LDEzMS40OTgsNDYuNjMsMTM0LjczLDQ0LjAxMywxMzYuODExeiAgICBNNzkuMDYsMTQ1LjA2MUM3NS42OCwxNDguMzU0LDcwLjUyMiwxNTAsNjMuNTksMTUwSDUxdi0zNmgxMy4wMDZjNi40ODEsMCwxMS40NTcsMS40MTIsMTQuOTI0LDQuNTg0ICAgYzMuNDY2LDMuMTcyLDUuMiw3LjQ5Niw1LjIsMTMuMTQ2Qzg0LjEzLDEzNy4zODIsODIuNDM5LDE0MS43NjgsNzkuMDYsMTQ1LjA2MXogTTExMywxMjFIOTZ2OGgxNnY3SDk2djE0aC04di0zNmgyNVYxMjF6IE0xMDksMjkgICBjLTUuNTIyLDAtMTAtNC40NzctMTAtMTBWNC42MjJMMTIzLjM3OSwyOUgxMDl6IiBmaWxsPSIjMjMxRjIwIi8+PC9nPjwvc3ZnPg==",
+    "icon": "data:image/png;base64,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",
     "children": [
         {
             "en": {
-                "title": "Read PDF text boxes and checkboxes",
-                "description": "Split PDF",
+                "title": "Split PDF",
+                "description": "This command allows you to split a PDF file into several PDF files with a certain number of pages.",
                 "title_options": null,
                 "options":null
             },
             "es": {
-                "title": "Leer cajas de texto y casillas de verificación de PDF",
-                "description": "Divide un pdf ",
+                "title": "Dividir PDF",
+                "description": "Este comando permite dividir un archivo PDF en varios archivos PDF con cierto número de páginas.",
                 "title_options": null,
                 "options":null
             },
-            "form": {
-                "css": "modal-lg",
-                "inputs": [
-                    {
-                        "type": "file_select",
-                        "placeholder": {
-                            "es": "C:/Users/User/Downloads/sample.pdf",
-                            "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
-                        },
-                        "title": {
-                            "es": "PDF",
-                            "en": "PDF"
-                        },
-                        "description":{
-                            "es": "Ruta donde se encuentra el archivo PDF.",
-                            "en": "Path to PDF file"
-                        },
-                        "id": "pdf",
-                        "css": "col-md-12"
-                    },
-                    {
-                        "type": "input",
-                        "placeholder": {
-                            "es": "resultado",
-                            "en": "resultado"
-                        },
-                        "title": {
-                            "es": "Variable donde se almacenará el resultado",
-                            "en": "Every few pages divide"
-                        },
-                        "description":{
-                            "es": "Número que se usará para saber cada cuantas páginas se dividirá el PDF..",
-                            "en": "Number of pages in wich the pace will be set to divide the PDF."
-                        },
-                        "id": "result",
-                        "css": "col-md-12"
-                    }
-                ]
-            },
-            "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
-            "module": "readTextBoxes",
-            "module_name": "PDF",
-            "visible": true,
-            "options": false,
-            "father": "module",
-            "group": "scripts",
-            "linux": true,
-            "windows":true,
-            "mac":true,
-            "docker":true
-        },
-        {
-            "en": {
-                "title": "Split Pdf",
-                "description": "Split PDF",
-                "title_options": null,
-                "options":null
-            },
-            "es": {
-                "title": "Dividir pdf",
-                "description": "Divide un pdf ",
+            "pr": {
+                "title": "Dividir PDF",
+                "description": "Esse comando permite dividir um arquivo PDF em vários arquivos PDF com um determinado número de páginas.",
                 "title_options": null,
                 "options":null
             },
@@ -108,15 +54,17 @@
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/sample.pdf",
                             "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "title": {
                             "es": "PDF de entrada:",
-                            "en": "Path to PDF:"
+                            "en": "Path to PDF:",
+                            "pr": "Caminho para o PDF:"
                         },
                         "description":{
-                            "es": "Ruta donde se encuentra el archivo PDF.",
-                            "en": "Path to PDF file that you want to divide."
+                            "es": "Ruta donde se encuentra el archivo PDF que se desea dividir.",
+                            "en": "Path to the PDF file to split.",
+                            "pr": "Caminho para o arquivo PDF a ser dividido."
                         },
                         "id": "pdf",
                         "css": "col-md-12"
@@ -125,15 +73,18 @@
                         "type": "folder_select",
                         "placeholder": {
                             "es": "C:/Users/User/Desktop/PDF",
-                            "en": "C:/Users/User/Desktop/PDF "
+                            "en": "C:/Users/User/Desktop/PDF",
+                            "pr": "C:/Users/User/Desktop/PDF"
                         },
                         "title": {
-                            "es": "Path y nombre de la carpeta donde guardar el pdf",
-                            "en": "Path and name of the folder where to save the pdf"
+                            "es": "Ruta de la carpeta donde guardar los PDF resultantes:",
+                            "en": "Path of the folder where to save the resulting pdfs:",
+                            "pr": "Caminho da pasta onde salvar os PDFs resultantes:"
                         },
                         "description":{
                             "es": "Ruta que se desea usar para guardar los PDF resultantes.",
-                            "en": "Path to use for save the resulting PDFs."
+                            "en": "Path to use for save the resulting PDFs.",
+                            "pr": "Caminho a ser usado para salvar os PDFs resultantes."
                         },
                         "id": "folder",
                         "css": "col-md-12"
@@ -142,15 +93,18 @@
                         "type": "input",
                         "placeholder": {
                             "es": "1",
-                            "en": "1"
+                            "en": "1",
+                            "pr": "1"
                         },
                         "title": {
-                            "es": "Cada cuantas páginas dividir",
-                            "en": "Every few pages divide"
+                            "es": "Cada cuantas páginas dividir el PDF:",
+                            "en": "Every few pages divide the PDF:",
+                            "pr": "A cada poucas páginas dividir o PDF:"
                         },
                         "description":{
-                            "es": "Número que se usará para saber cada cuantas páginas se dividirá el PDF..",
-                            "en": "Number of pages in wich the pace will be set to divide the PDF."
+                            "es": "Número que se usará para saber cada cuantas páginas se dividirá el PDF.",
+                            "en": "Number of pages in wich the pace will be set to divide the PDF.",
+                            "pr": "Número de páginas em que o ritmo será definido para dividir o PDF."
                         },
                         "id": "step",
                         "css": "col-md-12"
@@ -158,7 +112,7 @@
                 ]
             },
             "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
+            "icon": "data:image/png;base64,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",
             "module": "split_pdf",
             "module_name": "PDF",
             "visible": true,
@@ -172,14 +126,123 @@
         },
         {
             "en": {
-                "title": "Merge Pdf",
-                "description": "Merge PDFs ",
+                "title": "Split PDF in specific steps",
+                "description": "Splits the PDF in a certain pace",
                 "title_options": null,
                 "options":null
             },
             "es": {
-                "title": "Combinar pdfs",
-                "description": "Combina pdfs en un pdf común",
+                "title": "Dividir PDF en páginas específicas",
+                "description": "Divide un PDF en un paso específico.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Dividir o PDF em páginas específicas",
+                "description": "Dividir um PDF em uma etapa específica.",
+                "title_options": null,
+                "options":null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+
+                    {
+                        "type": "file_select",
+                        "placeholder": {
+                            "es": "C:/Users/User/Downloads/sample.pdf",
+                            "en": "C:/Users/User/Downloads/sample.pdf",
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
+                        },
+                        "title": {
+                            "es": "Ruta al PDF:",
+                            "en": "Path to PDF:",
+                            "pr": "Caminho para o PDF:"
+                        },
+                        "description":{
+                            "es": "Ruta al PDF que deseas dividir.",
+                            "en": "Path to PDF file that you want to divide.",
+                            "pr": "Caminho para o arquivo PDF que você deseja dividir."
+                        },
+                        "id": "pdf",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "folder_select",
+                        "placeholder": {
+                            "es": "C:/Users/User/Desktop/PDF",
+                            "en": "C:/Users/User/Desktop/PDF",
+                            "pr": "C:/Users/User/Desktop/PDF"
+                        },
+                        "title": {
+                            "es": "Ruta de la carpeta donde guardar el PDF",
+                            "en": "Path of the folder where to save the PDF",
+                            "pr": "Caminho da pasta onde salvar o PDF"
+                        },
+                        "description":{
+                            "es": "Ruta que se desea usar para guardar los PDF resultantes.",
+                            "en": "Path to use for save the resulting PDFs.",
+                            "pr": "Caminho a ser usado para salvar os PDFs resultantes."
+                        },
+                        "id": "folder",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "['1-3', '4-5']",
+                            "en": "['1-3', '4-5']",
+                            "pr": "['1-3', '4-5']"
+                        },
+                        "title": {
+                            "es": "Como dividr el PDF",
+                            "en": "How to divide the PDF",
+                            "pr": "Como dividir o PDF"
+                        },
+                        "description":{
+                            "es": "Forma en la cual se desea dividir el PDF.",
+                            "en": "Steps in wich the PDF will be divided.",
+                            "pr": "Passos em que o PDF será dividido."
+                        },
+                        "help": {
+                            "es": "Debe ser una lista que contenga los pasos en los cuales se desea dividir el PDF.",
+                            "en": "Must be a list containing the steps in which you want to divide the PDF.",
+                            "pr": "Deve ser uma lista contendo os passos em que você deseja dividir o PDF."
+                        },
+                        "id": "step",
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "SplitPdfMergeSpecificStep",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },
+        {
+            "en": {
+                "title": "Merge PDFs",
+                "description": "This command allows you to merge multiple PDFs from a folder into a single PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "es": {
+                "title": "Combinar PDFs",
+                "description": "Este comando permite combinar varios PDFs de una carpeta en un único PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Combinar PDFs",
+                "description": "Esse comando permite combinar vários PDFs de uma pasta em um único PDF.",
                 "title_options": null,
                 "options":null
             },
@@ -190,17 +253,19 @@
                         "type": "folder_select",
                         "placeholder": {
                             "es": "C:/Users/User/Desktop/PDF",
-                            "en": "C:/Users/User/Desktop/PDF"
+                            "en": "C:/Users/User/Desktop/PDF",
+                            "pr": "C:/Users/User/Desktop/PDF"
                         },
                         "title": {
                             "es": "Ruta de la carpeta con los pdfs",
-                            "en": "Folder path with pdfs"
+                            "en": "Folder path with pdfs",
+                            "pr": "Caminho da pasta com pdfs"
                         },
                         "description":{
-                            "es": "Ruta contenedora de PDF a los cuales combinar.",
-                            "en": "Path that contains all PDFs to combine."
+                            "es": "Ruta que contiene todos los PDFs a combinar.",
+                            "en": "Path that contains all PDFs to combine.",
+                            "pr": "Caminho que contém todos os PDFs para combinar."
                         },
-
                         "id": "pdfs_folder",
                         "css": "col-md-12"
                     },
@@ -208,15 +273,19 @@
                         "type": "file_new",
                         "placeholder": {
                             "es": "C:/Users/User/Desktop/PDF/merge.pdf",
-                            "en": "C:/Users/User/Desktop/PDF/merge.pdf"
+                            "en": "C:/Users/User/Desktop/PDF/merge.pdf",
+                            "pr": "C:/Users/User/Desktop/PDF/merge.pdf"
                         },
                         "title": {
-                            "es": "Path y nombre del archivo donde guardar el pdf",
-                            "en": "Path and name of the file where to save the pdf"
+                            "es": "Ruta del archivo donde guardar el PDF",
+                            "en": "Path to use for save the resulting PDF",
+                            "pr": "Caminho para usar para salvar o PDF resultante"
+
                         },
                         "description":{
-                            "es": "Ruta que se desea usar para guardar el PDF.",
-                            "en": "Path to use for save the resulting PDF."
+                            "es": "Ruta que se desea usar para guardar el PDF resultante.",
+                            "en": "Path to use for save the resulting PDF.",
+                            "pr": "Caminho para usar para salvar o PDF resultante."
                         },
 
                         "id": "output_folder",
@@ -226,7 +295,7 @@
                 ]
             },
             "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
+            "icon": "data:image/png;base64,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",
             "module": "merge_pdf",
             "module_name": "PDF",
             "visible": true,
@@ -240,35 +309,42 @@
         },
         {
             "en": {
-                "title": "Encrypt Pdf",
-                "description": "Add password to a PDF",
+                "title": "Encrypt PDF",
+                "description": "This command allows you to add a password to a PDF file.",
                 "title_options": null,
                 "options":null
             },
             "es": {
-                "title": "Enctriptar pdf",
-                "description": "Agrega una contraseña a un pdf ",
+                "title": "Encriptar PDF",
+                "description": "Este comando permite agregar una contraseña a un archivo PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Encriptar PDF",
+                "description": "Esse comando permite adicionar uma senha a um arquivo PDF.",
                 "title_options": null,
                 "options":null
             },
             "form": {
                 "css": "modal-lg",
                 "inputs": [
-
                     {
                         "type": "file_select",
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/sample.pdf",
                             "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "title": {
                             "es": "PDF a encriptar:",
-                            "en": "PDF to encrypt:"
+                            "en": "PDF to encrypt:",
+                            "pr": "PDF para encriptar:"
                         },
                         "description":{
-                            "es": "Ruta que contiene el PDF para enciptar.",
-                            "en": "Path to the PDF that you want to encrypt."
+                            "es": "Ruta que contiene el PDF para encriptar.",
+                            "en": "Path to the PDF that you want to encrypt.",
+                            "pr": "Caminho para o PDF que você deseja encriptar."
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -278,15 +354,17 @@
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/sample.pdf",
                             "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "title": {
-                            "es": "Path y nombre del archivo donde guardar el pdf",
-                            "en": "Path and name of the file where to save the pdf"
+                            "es": "Path y nombre del archivo donde guardar el PDF encriptado",
+                            "en": "Path and name of the file where to save the encrypted PDF",
+                            "pr": "Caminho e nome do arquivo onde salvar o PDF encriptado"
                         },
                         "description":{
                             "es": "Ruta que se desea usar para guardar el PDF resultante.",
-                            "en": "Path to use for save the resulting PDF."
+                            "en": "Path to use for save the resulting PDF.",
+                            "pr": "Caminho para usar para salvar o PDF resultante."
                         },
                         "id": "out",
                         "css": "col-md-12"
@@ -295,15 +373,18 @@
                         "type": "input",
                         "placeholder": {
                             "es": "s3cr3t-p4ss",
-                            "en": "s3cr3t-p4ss"
+                            "en": "s3cr3t-p4ss",
+                            "pr": "s3cr3t-p4ss"
                         },
                         "title": {
                             "es": "Clave",
-                            "en": "Password"
+                            "en": "Password",
+                            "pr": "Senha"
                         },
                         "description":{
-                            "es": "Clave que se desea usar para encriptar.",
-                            "en": "Password wanted to use in the encryption."
+                            "es": "Clave que tendrá el PDF encriptado.",
+                            "en": "Password that the encrypted PDF will have.",
+                            "pr": "Senha que o PDF encriptado terá."
                         },
                         "id": "pass",
                         "css": "col-md-12"
@@ -311,7 +392,7 @@
                 ]
             },
             "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
+            "icon": "data:image/png;base64,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",
             "module": "encrypt_pdf",
             "module_name": "PDF",
             "visible": true,
@@ -325,98 +406,20 @@
         },
         {
             "en": {
-                "title": "Read Encrypted Pdf",
-                "description": "Read a pdf with password",
-                "title_options": null,
-                "options":null
-            },
-            "es": {
-                "title": "Leer pdf Encriptado",
-                "description": "Lee un pdf con contraseña",
-                "title_options": null,
-                "options":null
-            },
-            "form": {
-                "css": "modal-lg",
-                "inputs": [
-
-                    {
-                        "type": "file_select",
-                        "placeholder": {
-                            "es": "C:/Users/User/Downloads/sample.pdf",
-                            "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
-                        },
-                        "description":{
-                            "es": "Ruta donde se encuentra el PDF encriptado.",
-                            "en": "Path where the encrypted PDF is."
-                        },
-                        "title": {
-                            "es": "PDF encriptado:",
-                            "en": "Encrypted PDF:"
-                        },
-                        "id": "path",
-                        "css": "col-md-12"
-                    },
-                    {
-                        "type": "input",
-                        "placeholder": {
-                            "es": "s3cr3t-p4ss",
-                            "en": "s3cr3t-p4ss"
-                        },
-                        "title": {
-                            "es": "Clave",
-                            "en": "Password"
-                        },
-                        "description":{
-                            "es": "Clave que se usar para desencriptar.",
-                            "en": "Password to decrypt the PDF."
-                        },
-                        "id": "pass",
-                        "css": "col-md-6"
-                    },
-                    {
-                        "type": "input",
-                        "placeholder": {
-                            "es": "pdf_leido",
-                            "en": "pdf_read"
-                        },
-                        "title": {
-                            "es": "Asignar resultado a la variable:",
-                            "en": "Result"
-                        },
-                        "description":{
-                            "es": "Variable para guardar el resultado de la lectura del PDF.",
-                            "en": "Variable to save the result."
-                        },
-                        "id": "result",
-                        "css": "col-md-6"
-                    }
-                ]
-            },
-            "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
-            "module": "read_pdf",
-            "module_name": "PDF",
-            "visible": true,
-            "options": false,
-            "father": "module",
-            "group": "scripts",
-            "linux": true,
-            "windows":true,
-            "mac":true,
-            "docker":true
-        },
-         {
-            "en": {
-                "title": "Decrypt Pdf",
-                "description": "Decrypt PDF with a password",
+                "title": "Decrypt PDF",
+                "description": "This command allows you to decrypt a PDF file.",
                 "title_options": null,
                 "options":null
             },
             "es": {
                 "title": "Desencriptar PDF",
-                "description": "Desencriptar PDF con contraseña",
+                "description": "Este comando permite desencriptar un archivo PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Desencriptar PDF",
+                "description": "Este comando permite desencriptar um arquivo PDF.",
                 "title_options": null,
                 "options":null
             },
@@ -429,15 +432,17 @@
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/sample.pdf",
                             "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "title": {
                             "es": "PDF encriptado:",
-                            "en": "Encrypted PDF:"
+                            "en": "Encrypted PDF:",
+                            "pr": "PDF encriptado:"
                         },
                         "description":{
                             "es": "Ruta donde se encuentra el PDF encriptado.",
-                            "en": "Path where the encrypted PDF is."
+                            "en": "Path where the encrypted PDF is located.",
+                            "pr": "Caminho onde o PDF encriptado está localizado."
                         },
                         "id": "in_path",
                         "css": "col-md-12"
@@ -446,15 +451,18 @@
                         "type": "input",
                         "placeholder": {
                             "es": "s3cr3t-p4ss",
-                            "en": "s3cr3t-p4ss"
+                            "en": "s3cr3t-p4ss",
+                            "pr": "s3cr3t-p4ss"
                         },
                         "title": {
                             "es": "Clave",
-                            "en": "Password"
+                            "en": "Password",
+                            "pr": "Senha"
                         },
                         "description":{
-                            "es": "Clave que se usar para desencriptar.",
-                            "en": "Password to decrypt the PDF."
+                            "es": "Clave para desencriptar el PDF.",
+                            "en": "Password to decrypt the PDF.",
+                            "pr": "Senha para desencriptar o PDF."
                         },
                         "id": "pass_pdf",
                         "css": "col-md-3"
@@ -463,15 +471,18 @@
                         "type": "file_new",
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/output.pdf",
-                            "en": "C:/Users/User/Downloads/output.pdf"
+                            "en": "C:/Users/User/Downloads/output.pdf",
+                            "pr": "C:/Users/User/Downloads/output.pdf"
                         },
                         "title": {
                             "es": "Guardar PDF desencriptado:",
-                            "en": "Save decrypt PDF:"
+                            "en": "Save decrypted PDF:",
+                            "pr": "Salvar PDF desencriptado:"
                         },
                         "description":{
-                            "es": "Ruta donde guardar el PDF desencriptado.",
-                            "en": "Path to save the decrypted PDF."
+                            "es": "Ruta donde guardará el PDF desencriptado.",
+                            "en": "Path where the decrypted PDF will be saved.",
+                            "pr": "Caminho onde o PDF desencriptado será salvo."
                         },
                         "id": "out_path",
                         "css": "col-md-9"
@@ -479,7 +490,7 @@
                 ]
             },
             "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
+            "icon": "data:image/png;base64,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",
             "module": "decrypt_pdf",
             "module_name": "PDF",
             "visible": true,
@@ -493,14 +504,20 @@
         },
         {
             "en": {
-                "title": "Split Pdf in specific steps",
-                "description": "Splits the pdf in a certain pace",
+                "title": "Read Encrypted PDF",
+                "description": "This command allows you to read an encrypted PDF providing the password.",
                 "title_options": null,
                 "options":null
             },
             "es": {
-                "title": "Dividir pdf en páginas específicas",
-                "description": "Divide un pdf en un paso específico.",
+                "title": "Leer PDF Encriptado",
+                "description": "Este comando permite leer un PDF encriptado proporcionando la contraseña.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Ler PDF Encriptado",
+                "description": "Este comando permite ler um PDF encriptado fornecendo a senha.",
                 "title_options": null,
                 "options":null
             },
@@ -513,58 +530,72 @@
                         "placeholder": {
                             "es": "C:/Users/User/Downloads/sample.pdf",
                             "en": "C:/Users/User/Downloads/sample.pdf",
-                            "cn": "C:/Users/User/Downloads/sample.pdf"
-                        },
-                        "title": {
-                            "es": "PDF de entrada:",
-                            "en": "Path to PDF:"
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "description":{
-                            "es": "Ruta donde se encuentra el archivo PDF.",
-                            "en": "Path to PDF file that you want to divide."
-                        },
-                        "id": "pdf",
-                        "css": "col-md-12"
-                    },
-                    {
-                        "type": "folder_select",
-                        "placeholder": {
-                            "es": "C:/Users/User/Desktop/PDF",
-                            "en": "C:/Users/User/Desktop/PDF "
+                            "es": "Ruta donde se encuentra el PDF encriptado.",
+                            "en": "Path where the encrypted PDF is located.",
+                            "pr": "Caminho onde o PDF encriptado está localizado."
                         },
                         "title": {
-                            "es": "Path y nombre de la carpeta donde guardar el pdf",
-                            "en": "Path and name of the folder where to save the pdf"
+                            "es": "PDF encriptado:",
+                            "en": "Encrypted PDF:",
+                            "pr": "PDF encriptado:"
                         },
-                        "description":{
-                            "es": "Ruta que se desea usar para guardar los PDF resultantes.",
-                            "en": "Path to use for save the resulting PDFs."
-                        },
-                        "id": "folder",
+                        "id": "path",
                         "css": "col-md-12"
                     },
                     {
                         "type": "input",
                         "placeholder": {
-                            "es": "['1-3', 4-5']",
-                            "en": "['1-3', 4-5']"
+                            "es": "s3cr3t-p4ss",
+                            "en": "s3cr3t-p4ss",
+                            "pr": "s3cr3t-p4ss"
                         },
                         "title": {
-                            "es": "Como dividr el PDF",
-                            "en": "How to divide the PDF"
+                            "es": "Clave",
+                            "en": "Password",
+                            "pr": "Senha"
                         },
                         "description":{
-                            "es": "Forma en la cual se desea dividir el PDF.",
-                            "en": "Steps in wich the PDF will be divided."
+                            "es": "Clave que se usar para desencriptar.",
+                            "en": "Password to decrypt the PDF.",
+                            "pr": "Senha para descriptografar o PDF."
                         },
-                        "id": "step",
-                        "css": "col-md-12"
+                        "id": "pass",
+                        "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "pdf_leido",
+                            "en": "pdf_read",
+                            "pr": "pdf_lido"
+                        },
+                        "title": {
+                            "es": "Asignar resultado a la variable:",
+                            "en": "Assign result to variable:",
+                            "pr": "Atribuir resultado à variável:"
+                        },
+                        "description":{
+                            "es": "Variable para guardar el resultado de la lectura del PDF.",
+                            "en": "Variable to save the result of the PDF reading.",
+                            "pr": "Variável para salvar o resultado da leitura do PDF."
+                        },
+                        "help": {
+                            "es": "Nombre de la variable sin {}",
+                            "en": "Variable name without {}",
+                            "pr": "Nome da variável sem {}"
+                        },
+                        "remove_vars": true,
+                        "id": "result",
+                        "css": "col-md-6"
                     }
                 ]
             },
             "video_youtube": "",
-            "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIHZpZXdCb3g9IjAgMCA0OSA2NCIgd2lkdGg9IjQ5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2UyODUwMDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmY2Y4YjsKICAgICAgfQogICAgPC9zdHlsZT48L2RlZnM+PGc+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDAwLDE2Ljg0MiBMNDkuMDAwLDU4Ljk0NyBDNDkuMDAwLDYxLjczOCA0Ni43MzAsNjQuMDAwIDQzLjkzMSw2NC4wMDAgTDUuMDY5LDY0LjAwMCBDMi4yNjksNjQuMDAwIC0wLjAwMCw2MS43MzggLTAuMDAwLDU4Ljk0NyBMLTAuMDAwLDUuMDUzIEMtMC4wMDAsMi4yNjIgMi4yNjksLTAuMDAwIDUuMDY5LC0wLjAwMCBMMzIuMTAzLC0wLjAwMCBMNDkuMDAwLDE2Ljg0MiBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzYuOTQ5LDQ4LjE4MiBDMzYuMTY5LDQ4LjgwMCAzNC45MTcsNDkuMTA5IDMzLjE5Miw0OS4xMDkgQzMxLjc3MCw0OS4xMDkgMzAuNTI3LDQ4LjgzOCAyOS40NjIsNDguMjk1IEwzMC4xNTIsNDYuMzg2IEMzMS4xMzgsNDYuODQ0IDMyLjE1Miw0Ny4wNzQgMzMuMTkyLDQ3LjA3NCBDMzQuMTYwLDQ3LjA3NCAzNC44MzMsNDYuOTM1IDM1LjIxMiw0Ni42NTggQzM1LjU5MCw0Ni4zODAgMzUuNzc5LDQ1LjkxMyAzNS43NzksNDUuMjU1IEwzNS43NzksNDQuNDc3IEMzNS4wMDQsNDUuMTgzIDM0LjA2OSw0NS41MzYgMzIuOTc0LDQ1LjUzNiBDMzEuODEzLDQ1LjUzNiAzMC44OTksNDUuMTIwIDMwLjIzNCw0NC4yODggQzI5LjU2OCw0My40NTUgMjkuMjM1LDQyLjI1OCAyOS4yMzUsNDAuNjk2IEMyOS4yMzUsMzkuNzE5IDI5LjM5MSwzOC44NTggMjkuNzAzLDM4LjExNCBDMzAuMDE0LDM3LjM2OSAzMC40NzEsMzYuNzkzIDMxLjA3MywzNi4zODYgQzMxLjY3NSwzNS45NzkgMzIuNDAzLDM1Ljc3NSAzMy4yNTYsMzUuNzc1IEMzMy43NTgsMzUuNzc1IDM0LjI2MCwzNS44ODUgMzQuNzYyLDM2LjEwNSBDMzUuMjY0LDM2LjMyNiAzNS42ODUsMzYuNjA0IDM2LjAyNCwzNi45NDIgTDM2LjMzMiwzNi4wNDcgTDM4LjEyMCwzNi4wNDcgTDM4LjEyMCw0NS4zNTUgQzM4LjEyMCw0Ni42MjEgMzcuNzMwLDQ3LjU2NCAzNi45NDksNDguMTgyIFpNMzUuNzc5LDM4LjY3OSBDMzUuMTM3LDM4LjExMiAzNC40MzksMzcuODI5IDMzLjY4MiwzNy44MjkgQzMzLjExNCwzNy44MjkgMzIuNjMzLDM4LjA4OCAzMi4yMzksMzguNjA3IEMzMS44NDYsMzkuMTI1IDMxLjY0OSwzOS44MTAgMzEuNjQ5LDQwLjY2MCBDMzEuNjQ5LDQxLjYyNSAzMS44MjMsNDIuMzM3IDMyLjE3MSw0Mi43OTUgQzMyLjUxOSw0My4yNTMgMzIuOTcxLDQzLjQ4MiAzMy41MjgsNDMuNDgyIEMzNC4zMDIsNDMuNDgyIDM1LjA1Myw0My4xNzIgMzUuNzc5LDQyLjU1MSBMMzUuNzc5LDM4LjY3OSBaTTI2LjE0MCw0NS4yMDEgQzI1LjU2Niw0NS42MTEgMjQuODc5LDQ1LjgxNiAyNC4wODAsNDUuODE2IEMyMy4wMjgsNDUuODE2IDIyLjEyOSw0NS40ODggMjEuMzg1LDQ0LjgzMCBMMjEuMzg1LDQ5LjEwOSBMMTkuMDQ0LDQ5LjEwOSBMMTkuMDQ0LDM2LjA0NyBMMjEuMjAzLDM2LjA0NyBMMjEuMjAzLDM2Ljk3OCBDMjEuNjM5LDM2LjYwNCAyMi4wOTcsMzYuMzEwIDIyLjU3OCwzNi4wOTYgQzIzLjA1OSwzNS44ODIgMjMuNjExLDM1Ljc3NSAyNC4yMzUsMzUuNzc1IEMyNS40MzksMzUuNzc1IDI2LjM1NSwzNi4xOTcgMjYuOTg0LDM3LjA0MiBDMjcuNjE0LDM3Ljg4NiAyNy45MjgsMzkuMTEzIDI3LjkyOCw0MC43MjMgQzI3LjkyOCw0MS43NDMgMjcuNzc0LDQyLjY0MSAyNy40NjUsNDMuNDE5IEMyNy4xNTcsNDQuMTk3IDI2LjcxNSw0NC43OTEgMjYuMTQwLDQ1LjIwMSBaTTI1LjAzMywzOC42MDIgQzI0LjcxMiwzOC4wODYgMjQuMjM1LDM3LjgyOSAyMy41OTksMzcuODI5IEMyMy4yMTgsMzcuODI5IDIyLjgyNiwzNy45MTggMjIuNDI0LDM4LjA5NSBDMjIuMDIyLDM4LjI3MyAyMS42NzUsMzguNDkyIDIxLjM4NSwzOC43NTEgTDIxLjM4NSw0Mi45MDMgQzIxLjYzMyw0My4xMjcgMjEuOTQwLDQzLjMyNCAyMi4zMDYsNDMuNDk2IEMyMi42NzIsNDMuNjY4IDIzLjA0OSw0My43NTQgMjMuNDM2LDQzLjc1NCBDMjQuMDc3LDQzLjc1NCAyNC41ODQsNDMuNDgxIDI0Ljk1Niw0Mi45MzUgQzI1LjMyOCw0Mi4zODkgMjUuNTE0LDQxLjY2NCAyNS41MTQsNDAuNzYwIEMyNS41MTQsMzkuODM3IDI1LjM1NCwzOS4xMTggMjUuMDMzLDM4LjYwMiBaTTE1LjU5NSwzNC42NDQgQzE1LjA5OCwzNC42NDQgMTQuNzYwLDM0LjU0MiAxNC41NzgsMzQuMzM3IEMxNC4zOTcsMzQuMTMyIDE0LjMwNiwzMy44MzkgMTQuMzA2LDMzLjQ1OSBDMTQuMzA2LDMzLjAzNyAxNC40MDMsMzIuNzM0IDE0LjU5NiwzMi41NTAgQzE0Ljc5MCwzMi4zNjYgMTUuMTIzLDMyLjI3NCAxNS41OTUsMzIuMjc0IEMxNi4wNjYsMzIuMjc0IDE2LjQwNCwzMi4zNjMgMTYuNjA2LDMyLjU0MSBDMTYuODA5LDMyLjcxOSAxNi45MTAsMzMuMDI1IDE2LjkxMCwzMy40NTkgQzE2LjkxMCwzMy45MDAgMTYuODAyLDM0LjIwNyAxNi41ODQsMzQuMzgyIEMxNi4zNjYsMzQuNTU3IDE2LjAzNiwzNC42NDQgMTUuNTk1LDM0LjY0NCBaTTE0LjQ0MiwzNi4wNDcgTDE2Ljc4MywzNi4wNDcgTDE2Ljc4Myw0NS45NDMgQzE2Ljc4Myw0Ny4wNzcgMTYuNTI5LDQ3Ljg4OCAxNi4wMjEsNDguMzc2IEMxNS41MTMsNDguODY1IDE0LjY4MSw0OS4xMDkgMTMuNTI1LDQ5LjEwOSBDMTMuMjY1LDQ5LjEwOSAxMi45MjMsNDkuMDgwIDEyLjUwMCw0OS4wMjMgQzEyLjA3Niw0OC45NjYgMTEuNzUwLDQ4LjkwNCAxMS41MjAsNDguODM4IEwxMi4wMjgsNDYuODExIEMxMi40NzAsNDYuOTg2IDEyLjkyNiw0Ny4wNzQgMTMuMzk4LDQ3LjA3NCBDMTMuODcwLDQ3LjA3NCAxNC4xNjIsNDYuOTI5IDE0LjI3NCw0Ni42MzkgQzE0LjM4Niw0Ni4zNTAgMTQuNDQyLDQ1Ljg3MSAxNC40NDIsNDUuMjAxIEwxNC40NDIsMzYuMDQ3IFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00OS4wMDAsMTUuODk5IEw0OS4wMDAsMTcuOTk1IEwzNS4xODcsMTcuOTk1IEMzMi4zMjcsMTcuOTk1IDMxLjAwOCwxNS42NzUgMzEuMDA4LDEyLjgxNCBMMzEuMDA4LC0wLjAwMCBMMzMuMTAwLC0wLjAwMCBMNDkuMDAwLDE1Ljg5OSBaIi8+PC9nPjwvc3ZnPg==",
-            "module": "SplitPdfMergeSpecificStep",
+            "icon": "data:image/png;base64,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",
+            "module": "read_pdf",
             "module_name": "PDF",
             "visible": true,
             "options": false,
@@ -574,6 +605,714 @@
             "windows":true,
             "mac":true,
             "docker":true
-        }
+        },
+        {
+            "en": {
+                "title": "Read PDF text boxes and checkboxes",
+                "description": "This command reads the text boxes and checkboxes of a PDF file.",
+                "title_options": null,
+                "options":null
+            },
+            "es": {
+                "title": "Leer cajas de texto y casillas de verificación de PDF",
+                "description": "Este comando lee las cajas de texto y casillas de verificación de un archivo PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Ler caixas de texto e caixas de seleção em PDF",
+                "description": "Este comando lê as caixas de texto e caixas de seleção de um arquivo PDF.",
+                "title_options": null,
+                "options":null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+                    {
+                        "type": "file_select",
+                        "placeholder": {
+                            "es": "C:/Users/User/Downloads/sample.pdf",
+                            "en": "C:/Users/User/Downloads/sample.pdf",
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
+                        },
+                        "title": {
+                            "es": "Ruta del PDF",
+                            "en": "Path to PDF file",
+                            "pr": "Caminho para o arquivo PDF"
+                        },
+                        "description":{
+                            "es": "Ruta donde se encuentra el archivo PDF que se desea leer.",
+                            "en": "Path to the PDF file to be read.",
+                            "pr": "Caminho para o arquivo PDF a ser lido."
+                        },
+                        "id": "pdf",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "resultado",
+                            "en": "result",
+                            "pr": "resultado"
+                        },
+                        "title": {
+                            "es": "Variable donde se almacenará el resultado",
+                            "en": "Variable to store the result",
+                            "pr": "Variável para armazenar o resultado"
+                        },
+                        "description":{
+                            "es": "Variable donde se almacenará el resultado de la lectura del PDF.",
+                            "en": "Variable to store the result of reading the PDF.",
+                            "pr": "Variável para armazenar o resultado da leitura do PDF."
+                        },
+                        "help": {
+                            "es": "Nombre de la variable sin {}",
+                            "en": "Variable name without {}",
+                            "pr": "Nome da variável sem {}"
+                        },
+                        "remove_vars": true,
+                        "id": "result",
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "readTextBoxes",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },
+        {
+            "en": {
+                "title": "Write on PDF input",
+                "description": "This command allows you to write on a PDF input, creating a new PDF with the data loaded.",
+                "title_options": null,
+                "options":null
+            },
+            "es": {
+                "title": "Escribir en input de PDF",
+                "description": "Este comando permite escribir en un input de PDF, creando un nuevo PDF con los datos cargados.",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Escrever em input de PDF",
+                "description": "Este comando permite escrever em um input de PDF, criando um novo PDF com os dados carregados.",
+                "title_options": null,
+                "options":null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+                    {
+                        "type": "file_select",
+                        "placeholder": {
+                            "es": "C:/Users/User/Downloads/sample.pdf",
+                            "en": "C:/Users/User/Downloads/sample.pdf",
+                            "pr": "C:/Users/User/Downloads/sample.pdf"
+                        },
+                        "title": {
+                            "es": "Ruta del PDF",
+                            "en": "Path to PDF file",
+                            "pr": "Caminho para o arquivo PDF"
+                        },
+                        "description":{
+                            "es": "Ruta donde se encuentra el archivo PDF que se desea leer.",
+                            "en": "Path to the PDF file to be read.",
+                            "pr": "Caminho para o arquivo PDF a ser lido."
+                        },
+                        "id": "pdf",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "textarea",
+                        "placeholder": {
+                            "es": "{key1:valor1, key2:valor2}",
+                            "en": "{key1:value1, key2:value2}",
+                            "pr": "{key1:valor1, key2:valor2}"
+                        },
+                        "title": {
+                            "es": "Diccionario de inputs",
+                            "en": "Inputs dictionary",
+                            "pr": "Dicionário de inputs"
+                        },
+                        "description": {
+                            "es": "Diccionario de inputs del PDF.",
+                            "en": "PDF inputs dictionary.",
+                            "pr": "Dicionário de inputs do PDF."
+                        },
+                        "help": {
+                            "es": "Carga un diccionario con varios inputs.",
+                            "en": "Load a dictionary with multiple inputs.",
+                            "pr": "Carregue um dicionário com vários inputs."
+                        },
+                        "id": "dictionary",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "file_new",
+                        "placeholder": {
+                            "es": "C:/Users/User/Downloads/result.pdf",
+                            "en": "C:/Users/User/Downloads/result.pdf",
+                            "pr": "C:/Users/User/Downloads/result.pdf"
+                        },
+                        "title": {
+                            "es": "Nombre del PDF con los datos cargados",
+                            "en": "Name of the PDF with the loaded data",
+                            "pr": "Nome do PDF com os dados carregados"
+                        },
+                        "description": {
+                            "es": "Nombre y ruta del PDF que se creará con los datos cargados.",
+                            "en": "Name and path of the PDF that will be created with the loaded data.",
+                            "pr": "Nome e caminho do PDF que será criado com os dados carregados."
+                        },
+                        "id": "new_path",
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "writeTextBoxes",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },
+        {
+            "es": {
+              "title": "Recortar imagen desde PDF",
+              "description": "Crea una imagen desde las coordenadas asignadas.",
+              "title_options": null,
+              "options": null
+            },
+            "en": {
+              "title": "Crop image from PDF",
+              "description": "Create an image from the assigned coordinates.",
+              "title_options": null,
+              "options": null
+            },
+            "pr": {
+              "title": "Cortar imagem de PDF",
+              "description": "Crie uma imagem a partir das coordenadas atribuídas.",
+              "title_options": null,
+              "options": null
+            },
+            "form": {
+              "css": "modal-lg",
+              "inputs": [
+                {
+                  "type": "file_select",
+                  "placeholder": {
+                    "es": "archivo.pdf",
+                    "en": "file.pdf",
+                    "pr": "arquivo.pdf"
+                  },
+                  "title": {
+                    "es": "PDF de entrada:",
+                    "en": "Input PDF:",
+                    "pr": "PDF de entrada:"
+                  },
+                  "description": {
+                    "es": "Archivo PDF que será utilizado en el módulo",
+                    "en": "PDF file that will be used in the module",
+                    "pr": "Arquivo PDF que será usado no módulo"
+                  },
+                  "help": {
+                    "es": "Archivo PDF que será utilizado",
+                    "en": "PDF file that will be used",
+                    "pr": "Arquivo PDF que será usado"
+                  },
+                  "id": "pdf",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "file_new",
+                  "placeholder": {
+                    "es": "path/imagen.jpg",
+                    "en": "path/image.jpg",
+                    "pr": "path/imagem.jpg"
+                  },
+                  "title": {
+                    "es": "Imagen JPG:",
+                    "en": "JPG image:",
+                    "pr": "imagem JPG:"
+                  },
+                  "description": {
+                    "es": "Ruta y nombre que tendrá la imagen JPG extraída del PDF",
+                    "en": "Path and name that the JPG image extracted from the PDF will have",
+                    "pr": "Caminho e nome que a imagem JPG extraída do PDF terá"
+                  },
+                  "help": {
+                    "es": "Ruta y nombre que tendrá la imagen JPG generada. Debe incluir la extensión .jpg",
+                    "en": "Path and name that the generated JPG image will have. Must include the .jpg extension",
+                    "pr": "Caminho e nome que a imagem JPG gerada terá. Deve incluir a extensão .jpg"
+                  },
+                  "id": "jpg",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "3",
+                    "en": "3",
+                    "pr": "3"
+                  },
+                  "title": {
+                    "es": "Página",
+                    "en": "Page",
+                    "pr": "Página"
+                  },
+                  "description": {
+                    "es": "Número de página del PDF desde donde será obtenida la imagen",
+                    "en": "Page number of the PDF from where the image will be obtained",
+                    "pr": "Número da página do PDF de onde a imagem será obtida"
+                  },
+                  "help": {
+                    "es": "Número de página del PDF desde donde será obtenida la imagen",
+                    "en": "Page number of the PDF from where the image will be obtained",
+                    "pr": "Número da página do PDF de onde a imagem será obtida"
+                  },
+                  "id": "page",
+                  "css": "col-md-3"
+                },
+                {
+                  "type": "input",
+                  "title": {
+                    "es": "Coordenadas de Inicio",
+                    "en": "Start Coordinates",
+                    "pr": "Coordenadas de início"
+                  },
+                  "placeholder": {
+                    "es": "0,0",
+                    "en": "0,0",
+                    "pr": "0,0"
+                  },
+                  "description": {
+                    "es": "Coordenadas desde donde se obtendrá la imagen",
+                    "en": "Coordinates from where the image will be obtained",
+                    "pr": "Coordenadas de onde a imagem será obtida"
+                  },
+                  "help": {
+                    "es": "Representado en píxeles. La imagen tendrá un tamaño equivalente a las coordenadas ingresadas.",
+                    "en": "Represented in pixels. The image will have a size equivalent to the entered coordinates.",
+                    "pr": "Representado em pixels. A imagem terá um tamanho equivalente às coordenadas inseridas."
+                  },
+                  "id": "coordinates",
+                  "css": "col-md-3"
+                },
+                {
+                  "type": "input",
+                  "title": {
+                    "es": "Coordenadas de Fin",
+                    "en": "End Coordinates",
+                    "pr": "Coordenadas finais"
+                  },
+                  "placeholder": {
+                    "es": "1000,1000",
+                    "en": "1000,1000",
+                    "pr": "1000,1000"
+                  },
+                  "description": {
+                    "es": "Coordenadas hasta donde se obtendrá la imagen",
+                    "en": "Coordinates to where the image will be obtained",
+                    "pr": "Coordenadas para onde a imagem será obtida"
+                  },
+                  "id": "size",
+                  "css": "col-md-3"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "150",
+                    "en": "150",
+                    "pr": "150"
+                  },
+                  "title": {
+                    "es": "DPI",
+                    "en": "DPI",
+                    "pr": "DPI"
+                  },
+                  "description": {
+                    "es": "DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI",
+                    "en": "DPI or Dots per inch that the image will have. Default is 150 DPI",
+                    "pr": "DPI ou Pontos por polegada que a imagem terá. O padrão é 150 DPI"
+                  },
+                  "help": {
+                    "es": "Puntos por pulgada. Por defecto son 150DPI",
+                    "en": "Dots per inch. Default is 150DPI",
+                    "pr": "Pontos por polegada. O padrão é 150DPI"
+                  },
+                  "id": "dpi",
+                  "css": "col-md-3"
+                }
+              ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "cropImage",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": false,
+            "windows": true,
+            "mac": false,
+            "docker": false
+        },
+        {
+            "en": {
+              "title": "Convert to JPG",
+              "description": "Convert each sheet of a PDF file to JPG format",
+              "title_options": null,
+              "options": null
+            },
+            "es": {
+              "title": "Convertir a JPG",
+              "description": "Convierte cada hoja de un archivo PDF a formato JPG",
+              "title_options": null,
+              "options": null
+            },
+            "pr": {
+              "title": "Converter para JPG",
+              "description": "Converter cada folha de um arquivo PDF para o formato JPG",
+              "title_options": null,
+              "options": null
+            },
+            "form": {
+              "css": "modal-lg",
+              "inputs": [
+                {
+                  "type": "file_select",
+                  "placeholder": {
+                    "es": "archivo.pdf",
+                    "en": "file.pdf",
+                    "pr": "arquivo.pdf"
+                  },
+                  "title": {
+                    "es": "PDF de entrada:",
+                    "en": "Input PDF:",
+                    "pr": "Inserir PDF:"
+                  },
+                  "description": {
+                    "es": "Ubicación de la carpeta donde se encuentra el PDF a convertir a JPG",
+                    "en": "Location of the folder where the PDF to convert to JPG is located",
+                    "pr": "Localização da pasta onde se encontra o PDF a converter para JPG"
+                  },
+                  "help": {
+                    "es": "Ruta donde se encuentra el PDF a convertir",
+                    "en": "Path where the PDF to convert is located",
+                    "pr": "Caminho onde o PDF a ser convertido está localizado"
+                  },
+                  "id": "pdf",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "file_new",
+                  "placeholder": {
+                    "es": "C:/Users/User/Desktop/imagen.jpg",
+                    "en": "C:/Users/User/Desktop/image.jpg",
+                    "pr": "C:/Users/User/Desktop/imagem.jpg"
+                  },
+                  "title": {
+                    "es": "Ruta y nombre del archivo JPG a guardar",
+                    "en": "Path and name of the JPG file to save",
+                    "pr": "Caminho e nome do arquivo JPG para salvar"
+                  },
+                  "description": {
+                    "es": "Ubicación y nombre del archivo JPG que se guardará. Si el PDF contiene más de una hoja, se añadirá el numero de hoja a los archivos",
+                    "en": "Location and name of the JPG file to be saved. If the PDF contains more than one sheet, the sheet number will be added to the files",
+                    "pr": "Local e nome do arquivo JPG a ser salvo. Se o PDF contiver mais de uma folha, o número da folha será adicionado aos arquivos"
+                  },
+                  "id": "jpg",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "1500",
+                    "en": "1500",
+                    "pr": "1500"
+                  },
+                  "title": {
+                    "es": "Ancho de imagen",
+                    "en": "Ancho de imagen",
+                    "pr": "Ancho de imagen"
+                  },
+                  "description": {
+                    "es": "Valor numérico que representará el ancho de la imagen en píxeles.",
+                    "en": "Numeric value that will represent the width of the image in pixels.",
+                    "pr": "Valor numérico que representará a largura da imagem em pixels."
+                  },
+                  "help": {
+                    "es": "Opcional. Ingrese un valor numérico que representará el ancho de la imagen en píxeles.",
+                    "en": "Optional. Enter a numeric value that will represent the width of the image in pixels.",
+                    "pr": "Opcional. Insira um valor numérico que representará a largura da imagem em pixels."
+                  },
+                  "id": "width",
+                  "css": "col-md-6"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "150",
+                    "en": "150",
+                    "pr": "150"
+                  },
+                  "title": {
+                    "es": "DPI",
+                    "en": "DPI",
+                    "pr": "DPI"
+                  },
+                  "description": {
+                    "es": "DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI",
+                    "en": "DPI or Dots per inch that the image will have. Default is 150 DPI",
+                    "pr": "DPI ou Pontos por polegada que a imagem terá. O padrão é 150 DPI"
+                  },
+                  "help": {
+                    "es": "Puntos por pulgada. Por defecto son 150DPI",
+                    "en": "Dots per inch. Default is 150DPI",
+                    "pr": "Pontos por polegada. O padrão é 150DPI"
+                  },
+                  "id": "dpi",
+                  "css": "col-md-6"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "variable",
+                    "en": "variable",
+                    "pr": "variável"
+                  },
+                  "title": {
+                    "es": "Resultado",
+                    "en": "Resultado",
+                    "pr": "Resultado"
+                  },
+                  "description": {
+                    "es": "Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción",
+                    "en": "Variable where True or False will be stored depending on whether the module was able to execute the action",
+                    "pr": "Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação"
+                  },
+                  "help": {
+                    "es": "Variable donde se almacena el resultado sin {}",
+                    "en": "Variable where the result is stored without {}",
+                    "pr": "Variável onde o resultado é armazenado sem {}"
+                  },
+                  "remove_vars": true,
+                  "id": "result",
+                  "css": "col-md-6"
+                }
+              ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "toJpg",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": false,
+            "windows": true,
+            "mac": false,
+            "docker": false
+          },
+          {
+            "es": {
+              "title": "Agregar imagen a PDF",
+              "description": "Agrega una imagen a un PDF en la página y coordenadas ingresadas.",
+              "title_options": null,
+              "options": null
+            },
+            "en": {
+              "title": "Add image to PDF",
+              "description": "Adds an image to a PDF on the page and coordinates entered.",
+              "title_options": null,
+              "options": null
+            },
+            "pr": {
+              "title": "Adicionar imagem ao PDF",
+              "description": "Adiciona uma imagem a um PDF na página e as coordenadas inseridas.",
+              "title_options": null,
+              "options": null
+            },
+            "form": {
+              "css": "modal-lg",
+              "inputs": [
+                {
+                  "type": "file_select",
+                  "placeholder": {
+                    "es": "archivo.pdf",
+                    "en": "file.pdf",
+                    "pr": "arquivo.pdf"
+                  },
+                  "title": {
+                    "es": "PDF de entrada:",
+                    "en": "Input PDF:",
+                    "pr": "PDF de entrada:"
+                  },
+                  "description": {
+                    "es": "Archivo PDF al que se le añadirá la imagen",
+                    "en": "PDF file to which the image will be added",
+                    "pr": "Arquivo PDF ao qual a imagem será adicionada"
+                  },
+                  "id": "pdf",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "file_select",
+                  "placeholder": {
+                    "es": "path/imagen.jpg",
+                    "en": "path/image.jpg",
+                    "pr": "path/imagem.jpg"
+                  },
+                  "title": {
+                    "es": "archivo JPG:",
+                    "en": "JPG file:",
+                    "pr": "arquivo JPG:"
+                  },
+                  "description": {
+                    "es": "Archivo JPG que será agregado al PDF",
+                    "en": "JPG file that will be added to the PDF",
+                    "pr": "Arquivo JPG que será adicionado ao PDF"
+                  },
+                  "help": {
+                    "es": "Archivo JPG que será colocado en el PDF",
+                    "en": "JPG file that will be placed in the PDF",
+                    "pr": "Arquivo JPG que será colocado no PDF"
+                  },
+                  "id": "jpg",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "3",
+                    "en": "3",
+                    "pr": "3"
+                  },
+                  "title": {
+                    "es": "Página",
+                    "en": "Page",
+                    "pr": "Página"
+                  },
+                  "description": {
+                    "es": "Número de página del PDF donde será agregada la imagen",
+                    "en": "Page number of the PDF where the image will be added",
+                    "pr": "Número da página do PDF onde a imagem será adicionada"
+                  },
+                  "help": {
+                    "es": "Número de página del PDF donde será agregada la imagen",
+                    "en": "Page number of the PDF where the image will be added",
+                    "pr": "Número da página do PDF onde a imagem será adicionada"
+                  },
+                  "id": "page",
+                  "css": "col-md-6"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "150,340",
+                    "en": "150,340",
+                    "pr": "150,340"
+                  },
+                  "title": {
+                    "es": "Coordenadas",
+                    "en": "Coordinates",
+                    "pr": "Coordenadas"
+                  },
+                  "description": {
+                    "es": "Coordenadas de la página del PDF donde se colocará la imagen. Si se colocan coordenadas más altas que el tamaño de la página, la imagen no se podrá visualizar.",
+                    "en": "Coordinates of the PDF page where the image will be placed. If coordinates higher than the page size are placed, the image cannot be displayed.",
+                    "pr": "Coordenadas da página PDF onde a imagem será colocada. Se forem colocadas coordenadas maiores que o tamanho da página, a imagem não poderá ser exibida."
+                  },
+                  "help": {
+                    "es": "Coordenadas donde se ubicará la imagen",
+                    "en": "Coordinates where the image will be located",
+                    "pr": "Coordenadas onde a imagem será localizada"
+                  },
+                  "id": "coordinates",
+                  "css": "col-md-6"
+                },
+                {
+                  "type": "file_new",
+                  "placeholder": {
+                    "es": "path/nuevo_archivo.pdf",
+                    "en": "path/new_file.pdf",
+                    "pr": "path/novo_arquivo.pdf"
+                  },
+                  "title": {
+                    "es": "PDF de salida:",
+                    "en": "Output PDF:",
+                    "pr": "PDF de saída:"
+                  },
+                  "description": {
+                    "es": "Ubicación del archivo PDF generado con la nueva imagen",
+                    "en": "Location of the PDF file generated with the new image",
+                    "pr": "Localização do arquivo PDF gerado com a nova imagem"
+                  },
+                  "help": {
+                    "es": "Ruta y nombre del archivo donde se guardará el PDF modificado",
+                    "en": "Path and name of the file where the modified PDF will be saved",
+                    "pr": "Caminho e nome do arquivo onde o PDF modificado será salvo"
+                  },
+                  "id": "pdf_new",
+                  "css": "col-md-12"
+                },
+                {
+                  "type": "input",
+                  "placeholder": {
+                    "es": "variable",
+                    "en": "variable",
+                    "pr": "variável"
+                  },
+                  "title": {
+                    "es": "Resultado",
+                    "en": "Resultado",
+                    "pr": "Resultado"
+                  },
+                  "description": {
+                    "es": "Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción",
+                    "en": "Variable where True or False will be stored depending on whether the module was able to execute the action",
+                    "pr": "Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação"
+                  },
+                  "help": {
+                    "es": "Variable donde se almacena el resultado sin {}",
+                    "en": "Variable where the result is stored without {}",
+                    "pr": "Variável onde o resultado é armazenado sem {}"
+                  },
+                  "remove_vars": true,
+                  "id": "result",
+                  "css": "col-md-6"
+                }
+              ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "addImage",
+            "module_name": "PDF",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": false,
+            "windows": true,
+            "mac": false,
+            "docker": false
+          }
     ]
 }

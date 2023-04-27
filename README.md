@@ -1,40 +1,51 @@
+# PDF
+  
+Module to perform actions with PDF files  
 
-
-
-
-# SplitPdfMerge
-
-Module to divide and combine PDFs.
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-
-## How to use this module
-In order to use this module, you have to select the PDF/s to use and execute the functions.
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
 
 
-1. Split Pdf  
-Split PDF into differents files.
+1. Split PDF  
+This command allows you to split a PDF file into several PDF files with a certain number of pages.
 
-2. Merge Pdf  
-Merge differents PDFs into one single file.
+2. Split PDF in specific steps  
+Splits the PDF in a certain pace
 
-3. Encrypt Pdf  
-Add password to a PDF.
+3. Merge PDFs  
+This command allows you to merge multiple PDFs from a folder into a single PDF.
 
-4. Read Encrypted Pdf  
-Read a pdf with password.
+4. Encrypt PDF  
+This command allows you to add a password to a PDF file.
 
-5. Decrypt Pdf  
-Decrypt PDF with a password.
+5. Decrypt PDF  
+This command allows you to decrypt a PDF file.
 
-6. Split Pdf in specific steps  
-Splits the pdf in a certain pace.
+6. Read Encrypted PDF  
+This command allows you to read an encrypted PDF providing the password.
+
+7. Read PDF text boxes and checkboxes  
+This command reads the text boxes and checkboxes of a PDF file.
+
+8. Write on PDF input  
+This command allows you to write on a PDF input, creating a new PDF with the data loaded.
+
+9. Crop image from PDF  
+Create an image from the assigned coordinates.
+
+10. Convert to JPG  
+Convert each sheet of a PDF file to JPG format
+
+11. Add image to PDF  
+Adds an image to a PDF on the page and coordinates entered.  
 
 
 
@@ -48,7 +59,7 @@ Splits the pdf in a certain pace.
 - docker
 
 ### Dependencies
-- [**PyPDF2**](https://pypi.org/project/PyPDF2/)
+- [**PyPDF2**](https://pypi.org/project/PyPDF2/)- [**fillpdf**](https://pypi.org/project/fillpdf/)
 ### License
   
 ![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
