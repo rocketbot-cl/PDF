@@ -27,6 +27,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 import os
 import sys
 import glob
+import traceback
 from subprocess import Popen as Ppen
 from subprocess import PIPE as PPE
 
@@ -450,5 +451,6 @@ try:
             raise Exception(e)
         
 except Exception as e:
+    traceback.print_exc()
     PrintException()
     raise e

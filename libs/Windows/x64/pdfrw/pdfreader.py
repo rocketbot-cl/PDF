@@ -305,7 +305,9 @@ class PdfReader(PdfDict):
                 offsets = []
                 firstoffset = int(obj.First)
                 while objsource.floc < firstoffset:
-                    offsets.append((int(next()), firstoffset + int(next())))
+                    print(type(next()))
+                    if next().isdigit():
+                        offsets.append((int(next()), firstoffset + int(next())))
                 for num, offset in offsets:
                     # Read the object, and call special code if it starts
                     # an array or dictionary
