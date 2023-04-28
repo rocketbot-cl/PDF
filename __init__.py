@@ -270,7 +270,7 @@ try:
             with open(path, "rb") as pdf:
                 reader = PdfFileReader(pdf)
 
-                if reader.isEncrypted:
+                if reader.isEncrypted and password is not None:
                     reader.decrypt(password)
 
                 page_number = reader.numPages
