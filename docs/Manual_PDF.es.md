@@ -2,7 +2,7 @@
   
 Módulo para realizar acciones con archivos PDF  
 
-
+*Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
   
 ![banner](imgs/Banner_PDF.jpg)
 ## Como instalar este módulo
@@ -58,13 +58,13 @@ Este comando permite desencriptar un archivo PDF.
 |Clave|Clave para desencriptar el PDF.|s3cr3t-p4ss|
 |Guardar PDF desencriptado|Ruta donde guardará el PDF desencriptado.|C:/Users/User/Downloads/output.pdf|
 
-### Leer PDF Encriptado
+### Leer PDF
   
-Este comando permite leer un PDF encriptado proporcionando la contraseña.
+Este comando permite leer un PDF. Si el PDF esta encriptado, proporcionando la contraseña lo desencripta.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|PDF encriptado|Ruta donde se encuentra el PDF encriptado.|C:/Users/User/Downloads/sample.pdf|
-|Clave|Clave que se usar para desencriptar.|s3cr3t-p4ss|
+|PDF a leer|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|Clave|Clave que se usará para desencriptar.|s3cr3t-p4ss|
 |Asignar resultado a la variable|Variable para guardar el resultado de la lectura del PDF.|pdf_leido|
 
 ### Leer cajas de texto y casillas de verificación de PDF

@@ -29,8 +29,8 @@ Este comando permite agregar una contraseña a un archivo PDF.
 5. Desencriptar PDF  
 Este comando permite desencriptar un archivo PDF.
 
-6. Leer PDF Encriptado  
-Este comando permite leer un PDF encriptado proporcionando la contraseña.
+6. Leer PDF  
+Este comando permite leer un PDF. Si el PDF esta encriptado, proporcionando la contraseña lo desencripta.
 
 7. Leer cajas de texto y casillas de verificación de PDF  
 Este comando lee las cajas de texto y casillas de verificación de un archivo PDF.

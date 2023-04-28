@@ -58,12 +58,12 @@ This command allows you to decrypt a PDF file.
 |Password|Password to decrypt the PDF.|s3cr3t-p4ss|
 |Save decrypted PDF|Path where the decrypted PDF will be saved.|C:/Users/User/Downloads/output.pdf|
 
-### Read Encrypted PDF
+### Read PDF
   
-This command allows you to read an encrypted PDF providing the password.
+This command allows you to read a PDF. If the PDF is encrypted, providing the password decrypts it.
 |Parameters|Description|example|
 | --- | --- | --- |
-|Encrypted PDF|Path where the encrypted PDF is located.|C:/Users/User/Downloads/sample.pdf|
+|PDF to read|Path where the PDF is located.|C:/Users/User/Downloads/sample.pdf|
 |Password|Password to decrypt the PDF.|s3cr3t-p4ss|
 |Assign result to variable|Variable to save the result of the PDF reading.|pdf_read|
 

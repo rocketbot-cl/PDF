@@ -29,8 +29,8 @@ This command allows you to add a password to a PDF file.
 5. Decrypt PDF  
 This command allows you to decrypt a PDF file.
 
-6. Read Encrypted PDF  
-This command allows you to read an encrypted PDF providing the password.
+6. Read PDF  
+This command allows you to read a PDF. If the PDF is encrypted, providing the password decrypts it.
 
 7. Read PDF text boxes and checkboxes  
 This command reads the text boxes and checkboxes of a PDF file.

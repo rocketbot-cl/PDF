@@ -58,12 +58,12 @@ Este comando permite desencriptar um arquivo PDF.
 |Senha|Senha para desencriptar o PDF.|s3cr3t-p4ss|
 |Salvar PDF desencriptado|Caminho onde o PDF desencriptado será salvo.|C:/Users/User/Downloads/output.pdf|
 
-### Ler PDF Encriptado
+### Ler PDF
   
-Este comando permite ler um PDF encriptado fornecendo a senha.
+Este comando permite ler um PDF. Se o PDF estiver encriptado, fornecendo a senha, ele será descriptografado.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
-|PDF encriptado|Caminho onde o PDF encriptado está localizado.|C:/Users/User/Downloads/sample.pdf|
+|PDF para ler|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.pdf|
 |Senha|Senha para descriptografar o PDF.|s3cr3t-p4ss|
 |Atribuir resultado à variável|Variável para salvar o resultado da leitura do PDF.|pdf_lido|
 
