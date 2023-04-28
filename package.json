@@ -504,20 +504,20 @@
         },
         {
             "en": {
-                "title": "Read Encrypted PDF",
-                "description": "This command allows you to read an encrypted PDF providing the password.",
+                "title": "Read PDF",
+                "description": "This command allows you to read a PDF. If the PDF is encrypted, providing the password decrypts it.",
                 "title_options": null,
                 "options":null
             },
             "es": {
-                "title": "Leer PDF Encriptado",
-                "description": "Este comando permite leer un PDF encriptado proporcionando la contraseña.",
+                "title": "Leer PDF",
+                "description": "Este comando permite leer un PDF. Si el PDF esta encriptado, proporcionando la contraseña lo desencripta.",
                 "title_options": null,
                 "options":null
             },
             "pr": {
-                "title": "Ler PDF Encriptado",
-                "description": "Este comando permite ler um PDF encriptado fornecendo a senha.",
+                "title": "Ler PDF",
+                "description": "Este comando permite ler um PDF. Se o PDF estiver encriptado, fornecendo a senha, ele será descriptografado.",
                 "title_options": null,
                 "options":null
             },
@@ -533,14 +533,14 @@
                             "pr": "C:/Users/User/Downloads/sample.pdf"
                         },
                         "description":{
-                            "es": "Ruta donde se encuentra el PDF encriptado.",
-                            "en": "Path where the encrypted PDF is located.",
-                            "pr": "Caminho onde o PDF encriptado está localizado."
+                            "es": "Ruta donde se encuentra el PDF.",
+                            "en": "Path where the PDF is located.",
+                            "pr": "Caminho onde o PDF está localizado."
                         },
                         "title": {
-                            "es": "PDF encriptado:",
-                            "en": "Encrypted PDF:",
-                            "pr": "PDF encriptado:"
+                            "es": "PDF a leer:",
+                            "en": "PDF to read:",
+                            "pr": "PDF para ler:"
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -558,9 +558,14 @@
                             "pr": "Senha"
                         },
                         "description":{
-                            "es": "Clave que se usar para desencriptar.",
+                            "es": "Clave que se usará para desencriptar.",
                             "en": "Password to decrypt the PDF.",
                             "pr": "Senha para descriptografar o PDF."
+                        },
+                        "help": {
+                            "es": "Opcional. Si el PDF no está encriptado, dejar en blanco.",
+                            "en": "Optional. If the PDF is not encrypted, leave blank.",
+                            "pr": "Opcional. Se o PDF não estiver criptografado, deixe em branco."
                         },
                         "id": "pass",
                         "css": "col-md-6"
