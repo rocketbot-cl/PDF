@@ -322,7 +322,7 @@ try:
             coord = eval(coord)
             size = eval(size)
 
-            pdf = PdfFileReader(pdf_path)
+            pdf = PdfFileReader(pdf_path, strict=False)
             if pdf.isEncrypted:
                 pdf.decrypt('')
             tmp = pdf.getPage(int(page) - 1)
@@ -405,7 +405,7 @@ try:
             raise e
         try:
             tmp_path = makeTmpDir("pdf2img") + os.sep + "tmp_pdf.pdf"
-            pdf = PdfFileReader(pdf_path)
+            pdf = PdfFileReader(pdf_path, strict=False)
             dim = (pdf.getPage(0).mediaBox.getWidth(), pdf.getPage(0).mediaBox.getHeight())
             tmp = pdf.getPage(page)
             pdf_writer = PdfFileWriter()

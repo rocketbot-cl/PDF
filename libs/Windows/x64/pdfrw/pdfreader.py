@@ -14,6 +14,7 @@ import gc
 import binascii
 import collections.abc as collections
 import itertools
+import time
 
 from collections import defaultdict
 
@@ -304,10 +305,9 @@ class PdfReader(PdfDict):
                 next = objsource.next
                 offsets = []
                 firstoffset = int(obj.First)
+                time.sleep(0.0001)
                 while objsource.floc < firstoffset:
-                    print(type(next()))
-                    if next().isdigit():
-                        offsets.append((int(next()), firstoffset + int(next())))
+                    offsets.append((int(next()), firstoffset + int(next())))
                 for num, offset in offsets:
                     # Read the object, and call special code if it starts
                     # an array or dictionary
