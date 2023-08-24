@@ -292,7 +292,8 @@ def write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False
                                 target[ANNOT_FIELD_KIDS_KEY][0].update( pdfrw.PdfDict( V=data_dict[key], AP=data_dict[key]) )
                 if flatten == True:
                     annotation.update(pdfrw.PdfDict(Ff=1))
-    template_pdf.Root.AcroForm.update(pdfrw.PdfDict(NeedAppearances=pdfrw.PdfObject('true')))
+    if template_pdf.Root.AcroForm is not None:
+        template_pdf.Root.AcroForm.update(pdfrw.PdfDict(NeedAppearances=pdfrw.PdfObject('true')))
     pdfrw.PdfWriter().write(output_pdf_path, template_pdf)
 
 

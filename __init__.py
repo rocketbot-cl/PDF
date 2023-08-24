@@ -51,6 +51,7 @@ elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
 
 
 from PyPDF3 import PdfFileReader, PdfFileWriter
+import fitz
 try:
     from fillpdf import fillpdfs
 except:
@@ -117,6 +118,44 @@ def reset_eof_of_pdf_return_stream(pdf_stream_in:list):
 
     # return the list up to that point
     return pdf_stream_in[:actual_line]
+
+
+def leer_pdf(pdf_path):
+    # Read PDF File with PDFMiner
+
+    # Importa los módulos necesarios
+    from r_pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+    from r_pdfminer.converter import TextConverter
+    from r_pdfminer.layout import LAParams
+    from r_pdfminer.pdfpage import PDFPage
+    from io import StringIO
+
+    # Crea un recurso de administrador de PDF
+    rsrcmgr = PDFResourceManager()
+    # Crea un objeto de almacenamiento en memoria para el texto extraído
+    output_str = StringIO()
+    # Crea un objeto de convertidor de texto
+    codec = 'utf-8'
+    laparams = LAParams()
+    device = TextConverter(rsrcmgr, output_str, codec=codec, laparams=laparams)
+    # Crea un objeto de intérprete de PDF
+    interpreter = PDFPageInterpreter(rsrcmgr, device)
+
+    # Abre el archivo PDF
+    with open(pdf_path, 'rb') as fp:
+        # Itera sobre las páginas del PDF
+        for page in PDFPage.get_pages(fp, check_extractable=True):
+            # Procesa la página
+            interpreter.process_page(page)
+
+        # Obtiene el texto extraído
+        text = output_str.getvalue()
+
+    # Cierra los objetos utilizados
+    device.close()
+    output_str.close()
+
+    return text   
 
 """
     Obtengo el modulo que fueron invocados
@@ -225,63 +264,146 @@ try:
         except Exception as e:
             PrintException()
             raise e
-        
+    
     if module == "decrypt_pdf":
 
         in_path = GetParams("in_path")
         pass_pdf = GetParams("pass_pdf")
         out_path = GetParams("out_path")
 
+
         try:
+            out = PdfFileWriter()
             try:
-                out = PdfFileWriter()
                 file = PdfFileReader(in_path, password=pass_pdf)
                 if file.isEncrypted:
-
                     file.decrypt('')
-                    for idx in range(file.numPages):
-                        page = file.getPage(idx)
-                        out.addPage(page)
-
-                    with open(out_path, "wb") as f:
-                        out.write(f)
-
-                    print("File decrypted Successfully.")
                 else:
                     print("File already decrypted.")
             except:
-                import subprocess
-                FNULL = open(os.devnull, 'w')    #use this if you want to suppress output to stdout from the subprocess
-                bin_path = cur_path + os.sep + "bin_qpdf" + os.sep + "qpdf"
-                args = bin_path  + " --decrypt --password={pass_pdf} {in_path} {out_path} ".format(pass_pdf=pass_pdf, in_path=in_path, out_path=out_path)
-                subprocess.call(args, stdout=FNULL, stderr=FNULL, shell=False)
+                file = PdfFileReader(in_path)
+                if file.isEncrypted:
+                    file.decrypt(pass_pdf)
+                else:
+                    print("File already decrypted.")
+                
+            for idx in range(file.numPages):
+                page = file.getPage(idx)
+                out.addPage(page)
 
+            with open(out_path, "wb") as f:
+                out.write(f)
 
+            print("File decrypted Successfully.")
+            
         except Exception as e:
-            PrintException()
+            traceback.print_exc()
             raise e
         
     if module == "read_pdf":
         path = GetParams("path")
+        option = GetParams("option") if GetParams("option") else "1"
+        pages = GetParams("pages")
+        list_dict = eval(GetParams("list_dict")) if GetParams("list_dict") else None
+        result_list = []
         password = GetParams("pass")
         result = GetParams("result")
 
+        if pages:
+            if "-" in pages:
+                pages = pages.split("-")
+                pages = [*range(int(pages[0]), int(pages[1])+1)]
+
+
+            elif "-" not in pages and not pages.startswith("["):
+                pages = pages.split(",")
+                pages = [int(i) for i in pages]
+
         try:
-            text = ""
-            with open(path, "rb") as pdf:
-                reader = PdfFileReader(pdf)
+            if option == "1":
+                text = ""
+                with open(path, "rb") as pdf:
+                    reader = PdfFileReader(pdf)
 
-                if reader.isEncrypted and password is not None:
-                    reader.decrypt(password)
+                    if reader.isEncrypted and password is not None:
+                        reader.decrypt(password)
+                    
+                    page_number = reader.numPages
 
-                page_number = reader.numPages
 
-                for i in range(page_number):
-                    page = reader.getPage(i)
-                    text += page.extractText()
+                    if pages:
+                        if list_dict:
+                            for page in pages:
+                                text += reader.getPage(page).extractText()
+                                result_list.append({"page": page, "text": text})
+                        else:
+                            for page in pages:
+                                text += reader.getPage(page).extractText()
 
-            SetVar(result, text)
+                    else:
+                        if list_dict:
+                            for i in range(page_number):
+                                page = reader.getPage(i)
+                                text = page.extractText()
+                                result_list.append({"page": i+1, "text": text})
+                        else:
+                            for i in range(page_number):
+                                page = reader.getPage(i)
+                                text += page.extractText()
+
+
+            elif option == "2":
+                with fitz.open(path) as doc:
+                    text = ""
+
+                    #get fitz.page objects
+                    page_objects = doc.pages()
+                    
+                    if list_dict:
+                        for page in page_objects:
+                            if pages:
+                                if (page.number + 1) in pages:
+                                    try:
+                                        text += page.getText()
+                                    except:
+                                        text += page.get_text()
+
+                                    result_list.append({"page": page.number + 1, "text": text})
+                            else:
+                                try:
+                                    text += page.getText()
+                                except:
+                                    text += page.get_text()
+
+                                result_list.append({"page": page.number + 1, "text": text})
+                    else:
+                        for page in doc:
+                            if pages:
+                                if (page.number + 1) in pages:
+                                    try:
+                                        text += page.getText()
+                                    except:
+                                        text += page.get_text()
+
+                            else:
+                                try:
+                                    text += page.getText()
+                                except:
+                                    text += page.get_text()
+
+            elif option == "3":
+                if pages or list_dict:
+                    raise Exception("Option 3 does not support pages or list format")
+
+
+                text = leer_pdf(path)
+
+            if list_dict:
+                SetVar(result, result_list)
+            else:
+                SetVar(result, text)
         except Exception as e:
+            traceback.print_exc()
             PrintException()
             raise e
 
