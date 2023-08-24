@@ -44,9 +44,6 @@ Crea una imagen desde las coordenadas asignadas.
 10. Convertir a JPG  
 Convierte cada hoja de un archivo PDF a formato JPG
 
-11. Agregar imagen a PDF  
-Agrega una imagen a un PDF en la página y coordenadas ingresadas.  
-
 
 
 
@@ -59,7 +56,7 @@ Agrega una imagen a un PDF en la página y coordenadas ingresadas.
 - docker
 
 ### Dependencies
-- [**PyPDF2**](https://pypi.org/project/PyPDF2/)- [**fillpdf**](https://pypi.org/project/fillpdf/)
+- [**PyPDF2**](https://pypi.org/project/PyPDF2/)- [**fillpdf**](https://pypi.org/project/fillpdf/)- [**fitz**](https://pypi.org/project/fitz/)
 ### License
   
 ![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  

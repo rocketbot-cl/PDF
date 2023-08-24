@@ -2,7 +2,7 @@
   
 Módulo para realizar acciones con archivos PDF  
 
-*Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
+
   
 ![banner](imgs/Banner_PDF.jpg)
 ## Como instalar este módulo
@@ -30,7 +30,7 @@ Divide un PDF en un paso específico.
 | --- | --- | --- |
 |Ruta al PDF|Ruta al PDF que deseas dividir.|C:/Users/User/Downloads/sample.pdf|
 |Ruta de la carpeta donde guardar el PDF|Ruta que se desea usar para guardar los PDF resultantes.|C:/Users/User/Desktop/PDF|
-|Como dividr el PDF|Forma en la cual se desea dividir el PDF.|['1-3', '4-5']|
+|Como dividir el PDF|Forma en la cual se desea dividir el PDF.|['1-3', '4-5']|
 
 ### Combinar PDFs
   
@@ -64,6 +64,9 @@ Este comando permite leer un PDF. Si el PDF esta encriptado, proporcionando la c
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |PDF a leer|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|Opción de lectura|Opción de lectura del PDF. Cada opción utiliza un método diferente para leer el PDF.|1|
+|Página/s|Páginas del documento PDF a leer.|1,3,5|
+|Retornar en formato lista de diccionario|Si se selecciona, el resultado se retornará en formato lista de diccionarios, donde cada uno tendrá la página y el contenido.|True|
 |Clave|Clave que se usará para desencriptar.|s3cr3t-p4ss|
 |Asignar resultado a la variable|Variable para guardar el resultado de la lectura del PDF.|pdf_leido|
 
@@ -105,16 +108,4 @@ Convierte cada hoja de un archivo PDF a formato JPG
 |Ruta y nombre del archivo JPG a guardar|Ubicación y nombre del archivo JPG que se guardará. Si el PDF contiene más de una hoja, se añadirá el numero de hoja a los archivos|C:/Users/User/Desktop/imagen.jpg|
 |Ancho de imagen|Valor numérico que representará el ancho de la imagen en píxeles.|1500|
 |DPI|DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI|150|
-|Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
-
-### Agregar imagen a PDF
-  
-Agrega una imagen a un PDF en la página y coordenadas ingresadas.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|PDF de entrada|Archivo PDF al que se le añadirá la imagen|archivo.pdf|
-|archivo JPG|Archivo JPG que será agregado al PDF|path/imagen.jpg|
-|Página|Número de página del PDF donde será agregada la imagen|3|
-|Coordenadas|Coordenadas de la página del PDF donde se colocará la imagen. Si se colocan coordenadas más altas que el tamaño de la página, la imagen no se podrá visualizar.|150,340|
-|PDF de salida|Ubicación del archivo PDF generado con la nueva imagen|path/nuevo_archivo.pdf|
 |Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|

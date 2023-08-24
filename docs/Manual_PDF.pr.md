@@ -64,6 +64,9 @@ Este comando permite ler um PDF. Se o PDF estiver encriptado, fornecendo a senha
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |PDF para ler|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.pdf|
+|Opção de leitura|Opção de leitura do PDF. Cada opção usa um método diferente para ler o PDF.|1|
+|Página/s|Páginas do documento PDF para ler.|1,3,5|
+|Retornar em formato lista de dicionário|Se selecionado, o resultado será retornado em formato de lista de dicionários, onde cada um terá a página e o conteúdo.|True|
 |Senha|Senha para descriptografar o PDF.|s3cr3t-p4ss|
 |Atribuir resultado à variável|Variável para salvar o resultado da leitura do PDF.|pdf_lido|
 
@@ -105,16 +108,4 @@ Converter cada folha de um arquivo PDF para o formato JPG
 |Caminho e nome do arquivo JPG para salvar|Local e nome do arquivo JPG a ser salvo. Se o PDF contiver mais de uma folha, o número da folha será adicionado aos arquivos|C:/Users/User/Desktop/imagem.jpg|
 |Ancho de imagen|Valor numérico que representará a largura da imagem em pixels.|1500|
 |DPI|DPI ou Pontos por polegada que a imagem terá. O padrão é 150 DPI|150|
-|Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|
-
-### Adicionar imagem ao PDF
-  
-Adiciona uma imagem a um PDF na página e as coordenadas inseridas.
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|PDF de entrada|Arquivo PDF ao qual a imagem será adicionada|arquivo.pdf|
-|arquivo JPG|Arquivo JPG que será adicionado ao PDF|path/imagem.jpg|
-|Página|Número da página do PDF onde a imagem será adicionada|3|
-|Coordenadas|Coordenadas da página PDF onde a imagem será colocada. Se forem colocadas coordenadas maiores que o tamanho da página, a imagem não poderá ser exibida.|150,340|
-|PDF de saída|Localização do arquivo PDF gerado com a nova imagem|path/novo_arquivo.pdf|
 |Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|

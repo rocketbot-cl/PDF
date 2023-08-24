@@ -44,9 +44,6 @@ Create an image from the assigned coordinates.
 10. Convert to JPG  
 Convert each sheet of a PDF file to JPG format
 
-11. Add image to PDF  
-Adds an image to a PDF on the page and coordinates entered.  
-
 
 
 
@@ -59,7 +56,7 @@ Adds an image to a PDF on the page and coordinates entered.
 - docker
 
 ### Dependencies
-- [**PyPDF2**](https://pypi.org/project/PyPDF2/)- [**fillpdf**](https://pypi.org/project/fillpdf/)
+- [**PyPDF2**](https://pypi.org/project/PyPDF2/)- [**fillpdf**](https://pypi.org/project/fillpdf/)- [**fitz**](https://pypi.org/project/fitz/)
 ### License
   
 ![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
