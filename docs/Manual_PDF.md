@@ -109,3 +109,4 @@ Convert each sheet of a PDF file to JPG format
 |Ancho de imagen|Numeric value that will represent the width of the image in pixels.|1500|
 |DPI|DPI or Dots per inch that the image will have. Default is 150 DPI|150|
 |Resultado|Variable where True or False will be stored depending on whether the module was able to execute the action|variable|
+
