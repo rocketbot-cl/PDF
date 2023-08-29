@@ -336,6 +336,7 @@ try:
                             for page in pages:
                                 text += reader.getPage(page).extractText()
                                 result_list.append({"page": page, "text": text})
+                                text = ""
                         else:
                             for page in pages:
                                 text += reader.getPage(page).extractText()
@@ -376,6 +377,7 @@ try:
                                     text += page.get_text()
 
                                 result_list.append({"page": page.number + 1, "text": text})
+                            text = ""
                     else:
                         for page in doc:
                             if pages:
