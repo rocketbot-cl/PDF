@@ -1,8 +1,12 @@
+
+
+
+
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
 
-*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
+
 
 ## Como instalar este módulo
   
@@ -35,14 +39,20 @@ Este comando permite leer un PDF. Si el PDF esta encriptado, proporcionando la c
 7. Leer cajas de texto y casillas de verificación de PDF  
 Este comando lee las cajas de texto y casillas de verificación de un archivo PDF.
 
-8. Escribir en input de PDF  
+8. Contar Páginas  
+Este comando permite contar las páginas de un PDF.
+
+9. Escribir en input de PDF  
 Este comando permite escribir en un input de PDF, creando un nuevo PDF con los datos cargados.
 
-9. Recortar imagen desde PDF  
+10. Recortar imagen desde PDF  
 Crea una imagen desde las coordenadas asignadas.
 
-10. Convertir a JPG  
+11. Convertir a JPG  
 Convierte cada hoja de un archivo PDF a formato JPG
+
+12. Agregar imagen a PDF  
+Agrega una imagen a un PDF en la página y coordenadas ingresadas.  
 
 
 

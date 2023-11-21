@@ -1,8 +1,12 @@
+
+
+
+
 # PDF
   
 Module to perform actions with PDF files  
 
-*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
+
 
 ## How to install this module
   
@@ -35,14 +39,20 @@ This command allows you to read a PDF. If the PDF is encrypted, providing the pa
 7. Read PDF text boxes and checkboxes  
 This command reads the text boxes and checkboxes of a PDF file.
 
-8. Write on PDF input  
+8. Count Pages  
+This command allows you to count the pages of a PDF.
+
+9. Write on PDF input  
 This command allows you to write on a PDF input, creating a new PDF with the data loaded.
 
-9. Crop image from PDF  
+10. Crop image from PDF  
 Create an image from the assigned coordinates.
 
-10. Convert to JPG  
+11. Convert to JPG  
 Convert each sheet of a PDF file to JPG format
+
+12. Add image to PDF  
+Adds an image to a PDF on the page and coordinates entered.  
 
 
 

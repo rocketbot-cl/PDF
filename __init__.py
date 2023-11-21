@@ -330,7 +330,6 @@ try:
                     
                     page_number = reader.numPages
 
-
                     if pages:
                         if list_dict:
                             for page in pages:
@@ -419,6 +418,24 @@ try:
             raise Exception("No PDF form fields found.")
 
         SetVar(result, fields)
+
+    if module == "count_pages":
+        path = GetParams("path")
+        result = GetParams("result")
+        nro_pag = GetParams("nro_pag")
+
+        try:
+                
+                with open(path, "rb") as pdf:
+                    reader = PdfFileReader(pdf)
+                    
+                    page_number = reader.numPages
+
+                    SetVar(nro_pag, page_number)
+
+        except Exception as e:
+            PrintException()
+            raise e
         
     if module == "writeTextBoxes":
         path = GetParams("pdf").replace("/", os.sep)

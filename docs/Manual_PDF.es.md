@@ -1,10 +1,14 @@
+
+
+
+
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
-
-
-  
+ 
 ![banner](imgs/Banner_PDF.jpg)
+
+
 ## Como instalar este módulo
   
 Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
@@ -78,6 +82,14 @@ Este comando lee las cajas de texto y casillas de verificación de un archivo PD
 |Ruta del PDF|Ruta donde se encuentra el archivo PDF que se desea leer.|C:/Users/User/Downloads/sample.pdf|
 |Variable donde se almacenará el resultado|Variable donde se almacenará el resultado de la lectura del PDF.|resultado|
 
+### Contar Páginas
+  
+Este comando permite contar las páginas de un PDF.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF a leer|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|Asignar resultado a la variable |Variable donde se guardará el número de páginas del PDF.|nro_pag|
+
 ### Escribir en input de PDF
   
 Este comando permite escribir en un input de PDF, creando un nuevo PDF con los datos cargados.
@@ -108,4 +120,16 @@ Convierte cada hoja de un archivo PDF a formato JPG
 |Ruta y nombre del archivo JPG a guardar|Ubicación y nombre del archivo JPG que se guardará. Si el PDF contiene más de una hoja, se añadirá el numero de hoja a los archivos|C:/Users/User/Desktop/imagen.jpg|
 |Ancho de imagen|Valor numérico que representará el ancho de la imagen en píxeles.|1500|
 |DPI|DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI|150|
+|Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
+
+### Agregar imagen a PDF
+  
+Agrega una imagen a un PDF en la página y coordenadas ingresadas.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF de entrada|Archivo PDF al que se le añadirá la imagen|archivo.pdf|
+|archivo JPG|Archivo JPG que será agregado al PDF|path/imagen.jpg|
+|Página|Número de página del PDF donde será agregada la imagen|3|
+|Coordenadas|Coordenadas de la página del PDF donde se colocará la imagen. Si se colocan coordenadas más altas que el tamaño de la página, la imagen no se podrá visualizar.|150,340|
+|PDF de salida|Ubicación del archivo PDF generado con la nueva imagen|path/nuevo_archivo.pdf|
 |Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
