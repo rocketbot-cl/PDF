@@ -1,14 +1,10 @@
-
-
-
-
 # PDF
   
 Módulo para realizar ações com arquivos PDF  
 
+*Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
+  
 ![banner](imgs/Banner_PDF.jpg)
-
-
 ## Como instalar este módulo
   
 Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
@@ -122,14 +118,3 @@ Converter cada folha de um arquivo PDF para o formato JPG
 |DPI|DPI ou Pontos por polegada que a imagem terá. O padrão é 150 DPI|150|
 |Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|
 
-### Adicionar imagem ao PDF
-  
-Adiciona uma imagem a um PDF na página e as coordenadas inseridas.
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-|PDF de entrada|Arquivo PDF ao qual a imagem será adicionada|arquivo.pdf|
-|arquivo JPG|Arquivo JPG que será adicionado ao PDF|path/imagem.jpg|
-|Página|Número da página do PDF onde a imagem será adicionada|3|
-|Coordenadas|Coordenadas da página PDF onde a imagem será colocada. Se forem colocadas coordenadas maiores que o tamanho da página, a imagem não poderá ser exibida.|150,340|
-|PDF de saída|Localização do arquivo PDF gerado com a nova imagem|path/novo_arquivo.pdf|
-|Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|

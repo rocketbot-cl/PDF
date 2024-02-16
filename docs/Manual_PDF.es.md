@@ -1,10 +1,8 @@
-
-
-
-
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
+
+*Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
  
 ![banner](imgs/Banner_PDF.jpg)
 
@@ -122,14 +120,3 @@ Convierte cada hoja de un archivo PDF a formato JPG
 |DPI|DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI|150|
 |Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
 
-### Agregar imagen a PDF
-  
-Agrega una imagen a un PDF en la página y coordenadas ingresadas.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|PDF de entrada|Archivo PDF al que se le añadirá la imagen|archivo.pdf|
-|archivo JPG|Archivo JPG que será agregado al PDF|path/imagen.jpg|
-|Página|Número de página del PDF donde será agregada la imagen|3|
-|Coordenadas|Coordenadas de la página del PDF donde se colocará la imagen. Si se colocan coordenadas más altas que el tamaño de la página, la imagen no se podrá visualizar.|150,340|
-|PDF de salida|Ubicación del archivo PDF generado con la nueva imagen|path/nuevo_archivo.pdf|
-|Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
