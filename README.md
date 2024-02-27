@@ -1,12 +1,8 @@
-
-
-
-
 # PDF
   
 Module to perform actions with PDF files  
 
-
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
@@ -51,8 +47,6 @@ Create an image from the assigned coordinates.
 11. Convert to JPG  
 Convert each sheet of a PDF file to JPG format
 
-12. Add image to PDF  
-Adds an image to a PDF on the page and coordinates entered.  
 
 
 

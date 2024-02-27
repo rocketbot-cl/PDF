@@ -1,14 +1,10 @@
-
-
-
-
 # PDF
   
 Module to perform actions with PDF files  
+
+*Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
   
 ![banner](imgs/Banner_PDF.jpg)
-
-
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -120,16 +116,4 @@ Convert each sheet of a PDF file to JPG format
 |Path and name of the JPG file to save|Location and name of the JPG file to be saved. If the PDF contains more than one sheet, the sheet number will be added to the files|C:/Users/User/Desktop/image.jpg|
 |Ancho de imagen|Numeric value that will represent the width of the image in pixels.|1500|
 |DPI|DPI or Dots per inch that the image will have. Default is 150 DPI|150|
-|Resultado|Variable where True or False will be stored depending on whether the module was able to execute the action|variable|
-
-### Add image to PDF
-  
-Adds an image to a PDF on the page and coordinates entered.
-|Parameters|Description|example|
-| --- | --- | --- |
-|Input PDF|PDF file to which the image will be added|file.pdf|
-|JPG file|JPG file that will be added to the PDF|path/image.jpg|
-|Page|Page number of the PDF where the image will be added|3|
-|Coordinates|Coordinates of the PDF page where the image will be placed. If coordinates higher than the page size are placed, the image cannot be displayed.|150,340|
-|Output PDF|Location of the PDF file generated with the new image|path/new_file.pdf|
 |Resultado|Variable where True or False will be stored depending on whether the module was able to execute the action|variable|

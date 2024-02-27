@@ -54,6 +54,7 @@ from PyPDF3 import PdfFileReader, PdfFileWriter
 import fitz
 try:
     from fillpdf import fillpdfs
+    import pdfplumber
 except:
     pass
 
@@ -590,6 +591,43 @@ try:
         except Exception as e:
             PrintException()
             raise Exception(e)
+
+    if module == "to_html":
+        pdf_path = GetParams("path")
+        html_path = GetParams("html_path")
+        result = GetParams("result")
+
+        try:
+            text = "<html><body>"
+            flag = False
+            bold = "<b>"
+            
+
+            with pdfplumber.open(pdf_path) as pdf:
+                for page in pdf.pages:
+                    for i in page.objects['char']:
+                        if "bold" in i['fontname'].lower():
+                            flag = True
+                            bold += i['text']
+                        else:
+                            if flag:
+                                bold += "</b>"
+                                text += bold
+                                flag = False
+                                bold = "<b>"
+                            text += i['text']
+                    
+            text += "</body></html>"
+
+            if html_path:
+                with open(html_path, "w") as html:
+                    html.write(text)
+
+            SetVar(result, text)
+
+        except Exception as e:
+            PrintException()
+            raise e
         
 except Exception as e:
     traceback.print_exc()

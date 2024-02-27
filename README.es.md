@@ -1,12 +1,8 @@
-
-
-
-
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
 
-
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -51,8 +47,6 @@ Crea una imagen desde las coordenadas asignadas.
 11. Convertir a JPG  
 Convierte cada hoja de un archivo PDF a formato JPG
 
-12. Agregar imagen a PDF  
-Agrega una imagen a un PDF en la página y coordenadas ingresadas.  
 
 
 
