@@ -1,3 +1,7 @@
+
+
+
+
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
@@ -47,6 +51,14 @@ Crea una imagen desde las coordenadas asignadas.
 11. Convertir a JPG  
 Convierte cada hoja de un archivo PDF a formato JPG
 
+12. Agregar imagen a PDF  
+Agrega una imagen a un PDF en la página y coordenadas ingresadas.
+
+13. Obtener HTML  
+Este comando permite leer un PDF y guardarlo como HTML.
+
+14. Rotar PDF  
+Rota las paginas que se indiquen de un PDF  
 
 
 

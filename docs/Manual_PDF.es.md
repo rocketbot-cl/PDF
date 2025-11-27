@@ -1,12 +1,14 @@
+
+
+
+
 # PDF
   
 Módulo para realizar acciones con archivos PDF  
 
 *Read this in other languages: [English](Manual_PDF.md), [Português](Manual_PDF.pr.md), [Español](Manual_PDF.es.md)*
- 
+  
 ![banner](imgs/Banner_PDF.jpg)
-
-
 ## Como instalar este módulo
   
 Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
@@ -118,5 +120,36 @@ Convierte cada hoja de un archivo PDF a formato JPG
 |Ruta y nombre del archivo JPG a guardar|Ubicación y nombre del archivo JPG que se guardará. Si el PDF contiene más de una hoja, se añadirá el numero de hoja a los archivos|C:/Users/User/Desktop/imagen.jpg|
 |Ancho de imagen|Valor numérico que representará el ancho de la imagen en píxeles.|1500|
 |DPI|DPI o Puntos por pulgada que tendrá la imagen. Por defecto son 150 DPI|150|
+|Convertir solo primer página|Convierte solo la primer página del PDF||
 |Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
 
+### Agregar imagen a PDF
+  
+Agrega una imagen a un PDF en la página y coordenadas ingresadas.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF de entrada|Archivo PDF al que se le añadirá la imagen|archivo.pdf|
+|archivo JPG|Archivo JPG que será agregado al PDF|path/imagen.jpg|
+|Página|Número de página del PDF donde será agregada la imagen|3|
+|Coordenadas|Coordenadas de la página del PDF donde se colocará la imagen. Si se colocan coordenadas más altas que el tamaño de la página, la imagen no se podrá visualizar.|150,340|
+|PDF de salida|Ubicación del archivo PDF generado con la nueva imagen|path/nuevo_archivo.pdf|
+|Resultado|Variable donde será almacenado True o False dependiendo si el módulo pudo ejecutar la acción|variable|
+
+### Obtener HTML
+  
+Este comando permite leer un PDF y guardarlo como HTML.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF a leer|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|HTML a guardar|Ruta y nombre donde se guardará el archivo HTML|C:/Users/User/Downloads/sample.html|
+|Asignar resultado a la variable|Variable para guardar el código HTML del PDF.|pdf_leido|
+
+### Rotar PDF
+  
+Rota las paginas que se indiquen de un PDF
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF a leer|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|PDF a guardar|Ruta y nombre donde se guardará el archivo HTML|C:/Users/User/Downloads/sample.html|
+|Grados a girar|Por defecto 90 grados, gira hacia la derecha. 180 para girar al reves, 270 para girar a la izquierda.|90|
+|Paginas|Página o páginas a rotar. Dejar vacío para rotar todo.|2, 3-5|

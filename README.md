@@ -1,3 +1,7 @@
+
+
+
+
 # PDF
   
 Module to perform actions with PDF files  
@@ -47,6 +51,14 @@ Create an image from the assigned coordinates.
 11. Convert to JPG  
 Convert each sheet of a PDF file to JPG format
 
+12. Add image to PDF  
+Adds an image to a PDF on the page and coordinates entered.
+
+13. Get HTML  
+This command allows you to read a PDF and save it as HTML.
+
+14. Rotate PDF  
+Rotate specified pages of a PDF  
 
 
 

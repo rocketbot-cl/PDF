@@ -7,7 +7,7 @@
         "pr": "Módulo para realizar ações com arquivos PDF"
     },
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"1.4.7",
+    "version":"1.5.8",
     "license": "MIT",
     "homepage":"http://rocketbot.com/",
     "linux": true,
@@ -1362,6 +1362,26 @@
                   "required": true
                 },
                 {
+                  "type": "checkbox",
+                  "placeholder": {
+                    "es": "",
+                    "en": "",
+                    "pr": ""
+                  },
+                  "title": {
+                    "es": "Convertir solo primer página",
+                    "en": "Convert only first page",
+                    "pr": "Converter apenas primeira página"
+                  },
+                  "description": {
+                    "es": "Convierte solo la primer página del PDF",
+                    "en": "Convert only the first page of the PDF",
+                    "pr": "Converta apenas a primeira página do PDF"
+                  },
+                  "id": "only_first",
+                  "css": "col-md-6"
+                },
+                {
                   "type": "input",
                   "placeholder": {
                     "es": "variable",
@@ -1715,6 +1735,140 @@
             "module": "to_html",
             "module_name": "PDF",
             "visible": false,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },
+        {
+            "en": {
+                "title": "Rotate PDF",
+                "description": "Rotate specified pages of a PDF",
+                "title_options": null,
+                "options":null
+            },
+            "es": {
+                "title": "Rotar PDF",
+                "description": "Rota las paginas que se indiquen de un PDF",
+                "title_options": null,
+                "options":null
+            },
+            "pr": {
+                "title": "Rotar PDF",
+                "description": "Rota as páginas que se indiquem de um PDF",
+                "title_options": null,
+                "options":null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+                  {
+                    "type": "file_select",
+                    "placeholder": {
+                        "es": "C:/Users/User/Downloads/sample.pdf",
+                        "en": "C:/Users/User/Downloads/sample.pdf",
+                        "pr": "C:/Users/User/Downloads/sample.pdf"
+                    },
+                    "description":{
+                        "es": "Ruta donde se encuentra el PDF.",
+                        "en": "Path where the PDF is located.",
+                        "pr": "Caminho onde o PDF está localizado."
+                    },
+                    "title": {
+                        "es": "PDF a leer:",
+                        "en": "PDF to read:",
+                        "pr": "PDF para ler:"
+                    },
+                    "id": "path",
+                    "css": "col-md-12",
+                    "data_type": "str",
+                    "default": null,
+                    "required": true
+                  },
+                  {
+                    "type": "file_new",
+                    "placeholder": {
+                        "es": "C:/Users/User/Downloads/sample.html",
+                        "en": "C:/Users/User/Downloads/sample.html",
+                        "pr": "C:/Users/User/Downloads/sample.html"
+                    },
+                    "description":{
+                        "es": "Ruta y nombre donde se guardará el archivo HTML",
+                        "en": "Path and name where the HTML file will be saved",
+                        "pr": "Caminho onde o PDF está localizado."
+                    },
+                    "title": {
+                        "es": "PDF a guardar:",
+                        "en": "PDF to save:",
+                        "pr": "PDF para salvar:"
+                    },
+                    "help": {
+                        "es": "Opcional. Si no se especifica, no se guardará el archivo.",
+                        "en": "Optional. If not specified, the file will not be saved.",
+                        "pr": "Opcional. Se não especificado, o arquivo não será salvo."
+                    },
+                    "id": "out",
+                    "css": "col-md-12",
+                    "data_type": "str",
+                    "default": null,
+                    "required": false
+                  },
+                  {
+                    "type": "input",
+                    "placeholder": {
+                        "es": "90",
+                        "en": "90",
+                        "pr": "90"
+                    },
+                    "description":{
+                        "es": "Por defecto 90 grados, gira hacia la derecha. 180 para girar al reves, 270 para girar a la izquierda.",
+                        "en": "By default 90 degrees to the right. 180 to reverse, 270 to the left.",
+                        "pr": "Por padrão 90 graus para a direita. 180 para inverter, 270 para a esquerda."
+                    },
+                    "title": {
+                        "es": "Grados a girar:",
+                        "en": "Degrees to rotate:",
+                        "pr": "Grados para girar:"
+                    },
+                    "id": "degrees",
+                    "css": "col-md-6",
+                    "data_type": "str",
+                    "default": null,
+                    "required": false
+                  },
+                  {
+                    "type": "input",
+                    "placeholder": {
+                        "es": "2, 3-5",
+                        "en": "2, 3-5",
+                        "pr": "2, 3-5"
+                    },
+                    "description":{
+                        "es": "Página o páginas a rotar. Dejar vacío para rotar todo.",
+                        "en": "Page or pages to rotate.",
+                        "pr": "Página ou páginas para girar"
+                    },
+                    "title": {
+                        "es": "Paginas:",
+                        "en": "Pages:",
+                        "pr": "Páginas:"
+                    },
+                    "id": "pages",
+                    "css": "col-md-6",
+                    "data_type": "int",
+                    "default": null,
+                    "required": false
+                  }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/png;base64,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",
+            "module": "rotate_pdf",
+            "module_name": "PDF",
+            "visible": true,
             "options": false,
             "father": "module",
             "group": "scripts",
