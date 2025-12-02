@@ -1834,10 +1834,7 @@
                         "pr": "Grados para girar:"
                     },
                     "id": "degrees",
-                    "css": "col-md-6",
-                    "data_type": "str",
-                    "default": null,
-                    "required": false
+                    "css": "col-md-6"
                   },
                   {
                     "type": "input",
