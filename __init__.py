@@ -497,11 +497,14 @@ try:
         width = GetParams("width")
         ppx = GetParams("dpi")
         var_ = GetParams("result")
+        only_first = GetParams("only_first")
 
         r = True
         try:
             conf = []
             
+            if only_first == "True":
+                conf += ["-f", "1", "-l", "1"]
             if ppx:
                 conf.append("-r")
                 conf.append(ppx)
@@ -592,38 +595,46 @@ try:
             PrintException()
             raise Exception(e)
 
-    if module == "to_html":
-        pdf_path = GetParams("path")
-        html_path = GetParams("html_path")
-        result = GetParams("result")
+    if module == "rotate_pdf":
+        path = GetParams("path")
+        out = GetParams("out")
+        degrees = GetParams("degrees") or "90"
+        pages = GetParams("pages")  # ej: "1,3-5" o vacío para todas
+
+        if not out:
+            out = path
+
+        pages_to_rotate = None
+        if pages:
+            pages_to_rotate = set()
+            chunks = pages.split(",")
+            for ch in chunks:
+                ch = ch.strip()
+                if "-" in ch:
+                    a, b = ch.split("-")
+                    for p in range(int(a), int(b) + 1):
+                        pages_to_rotate.add(p)
+                else:
+                    pages_to_rotate.add(int(ch))
 
         try:
-            text = "<html><body>"
-            flag = False
-            bold = "<b>"
-            
+            pdf_reader = PdfFileReader(path, strict=False)
+            pdf_writer = PdfFileWriter()
 
-            with pdfplumber.open(pdf_path) as pdf:
-                for page in pdf.pages:
-                    for i in page.objects['char']:
-                        if "bold" in i['fontname'].lower():
-                            flag = True
-                            bold += i['text']
-                        else:
-                            if flag:
-                                bold += "</b>"
-                                text += bold
-                                flag = False
-                                bold = "<b>"
-                            text += i['text']
-                    
-            text += "</body></html>"
+            num_pages = pdf_reader.getNumPages()
+            deg = int(degrees) % 360
 
-            if html_path:
-                with open(html_path, "w") as html:
-                    html.write(text)
+            for idx in range(num_pages):
+                page = pdf_reader.getPage(idx)
+                page_number_1based = idx + 1
 
-            SetVar(result, text)
+                if (pages_to_rotate is None) or (page_number_1based in pages_to_rotate):
+                    page.rotateClockwise(deg)
+
+                pdf_writer.addPage(page)
+
+            with open(out, "wb") as f:
+                pdf_writer.write(f)
 
         except Exception as e:
             PrintException()

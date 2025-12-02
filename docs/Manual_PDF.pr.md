@@ -1,3 +1,7 @@
+
+
+
+
 # PDF
   
 Módulo para realizar ações com arquivos PDF  
@@ -116,5 +120,36 @@ Converter cada folha de um arquivo PDF para o formato JPG
 |Caminho e nome do arquivo JPG para salvar|Local e nome do arquivo JPG a ser salvo. Se o PDF contiver mais de uma folha, o número da folha será adicionado aos arquivos|C:/Users/User/Desktop/imagem.jpg|
 |Ancho de imagen|Valor numérico que representará a largura da imagem em pixels.|1500|
 |DPI|DPI ou Pontos por polegada que a imagem terá. O padrão é 150 DPI|150|
+|Converter apenas primeira página|Converta apenas a primeira página do PDF||
 |Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|
 
+### Adicionar imagem ao PDF
+  
+Adiciona uma imagem a um PDF na página e as coordenadas inseridas.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|PDF de entrada|Arquivo PDF ao qual a imagem será adicionada|arquivo.pdf|
+|arquivo JPG|Arquivo JPG que será adicionado ao PDF|path/imagem.jpg|
+|Página|Número da página do PDF onde a imagem será adicionada|3|
+|Coordenadas|Coordenadas da página PDF onde a imagem será colocada. Se forem colocadas coordenadas maiores que o tamanho da página, a imagem não poderá ser exibida.|150,340|
+|PDF de saída|Localização do arquivo PDF gerado com a nova imagem|path/novo_arquivo.pdf|
+|Resultado|Variável onde será armazenado True ou False dependendo se o módulo foi capaz de executar a ação|variável|
+
+### Obter HTML
+  
+Este comando permite ler um PDF e salvá-lo como HTML.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|PDF para ler|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.pdf|
+|HTML para salvar|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.html|
+|Atribuir resultado à variável|Variável para salvar o código HTML do PDF.|pdf_lido|
+
+### Rotar PDF
+  
+Rota as páginas que se indiquem de um PDF
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|PDF para ler|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.pdf|
+|PDF para salvar|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.html|
+|Grados para girar|Por padrão 90 graus para a direita. 180 para inverter, 270 para a esquerda.|90|
+|Páginas|Página ou páginas para girar|2, 3-5|
