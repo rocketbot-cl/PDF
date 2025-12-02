@@ -1805,16 +1805,9 @@
                         "en": "PDF to save:",
                         "pr": "PDF para salvar:"
                     },
-                    "help": {
-                        "es": "Opcional. Si no se especifica, no se guardará el archivo.",
-                        "en": "Optional. If not specified, the file will not be saved.",
-                        "pr": "Opcional. Se não especificado, o arquivo não será salvo."
-                    },
                     "id": "out",
                     "css": "col-md-12",
-                    "data_type": "str",
-                    "default": null,
-                    "required": false
+                    "data_type": "str"
                   },
                   {
                     "type": "input",
