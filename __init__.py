@@ -23,7 +23,6 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
     pip install <package> -t .
 
 """
-
 import os
 import sys
 import glob
@@ -52,6 +51,7 @@ elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
 
 from PyPDF3 import PdfFileReader, PdfFileWriter
 import fitz
+
 try:
     from fillpdf import fillpdfs
     import pdfplumber
@@ -61,6 +61,7 @@ except:
 from PIL import Image
 global mod_txt
 
+global reset_eof_of_pdf_return_stream, normalize_with_pikepdf, open_reader_with_fallback, leer_pdf
 # Functions
 def pdf2Img(pdf, conf, img=None, dim=None, format_="-jpeg"):
     global Ppen, PPE
@@ -109,17 +110,97 @@ def makeTmpDir(name):
 
     return os.sep.join(["tmp", name])
 
-def reset_eof_of_pdf_return_stream(pdf_stream_in:list):
-    # find the line position of the EOF
-    for i, x in enumerate(mod_txt[::-1]):
-        if b'%%EOF' in x:
-            actual_line = len(pdf_stream_in)-i
-            print(f'EOF found at line position {-i} = actual {actual_line}, with value {x}')
-            break
 
-    # return the list up to that point
+def reset_eof_of_pdf_return_stream(pdf_stream_in: list):
+    actual_line = None
+    for i, x in enumerate(pdf_stream_in[::-1]):
+        if b'%%EOF' in x:
+            actual_line = len(pdf_stream_in) - i
+            # print opcional
+            # print(f'EOF found at line position {-i} = actual {actual_line}, with value {x}')
+            break
+    if actual_line is None:
+        return pdf_stream_in
     return pdf_stream_in[:actual_line]
 
+def normalize_with_pikepdf(in_pdf: str) -> str:
+    """
+    Devuelve un path temporal con el PDF normalizado.
+    Intenta password vacío primero.
+    """
+    import tempfile
+    import pikepdf
+
+    fd, out_path = tempfile.mkstemp(suffix=".pdf")
+    os.close(fd)
+
+    try:
+        try:
+            pdf = pikepdf.open(in_pdf, password="")
+        except pikepdf._qpdf.PasswordError:
+            # si no era password-vacio, intentamos sin password
+            pdf = pikepdf.open(in_pdf)
+
+        pdf.save(out_path)
+        pdf.close()
+        return out_path
+
+    except Exception as e:
+        # Limpiar temporal si falló
+        try:
+            os.remove(out_path)
+        except:
+            pass
+        raise e
+
+def open_reader_with_fallback(pdf_path: str):
+    temp_files = []
+    from PyPDF3 import PdfFileReader
+
+    """
+    Abre con PyPDF3; si falla por encriptación/estructura,
+    normaliza con pikepdf y vuelve a abrir.
+    """
+    # 1) Intento normal con saneo EOF en memoria (sin reescribir el original)
+    
+    try:
+        with open(pdf_path, "rb") as f:
+            lines = f.readlines()
+        fixed_lines = reset_eof_of_pdf_return_stream(lines)
+
+        # Abrir desde bytes saneados
+        import io
+        stream = io.BytesIO(b"".join(fixed_lines))
+        reader = PdfFileReader(stream, strict=False)
+
+        # Si está encriptado, intentamos password vacío
+        if reader.isEncrypted:
+            try:
+                reader.decrypt("")
+            except Exception:
+                raise Exception("Encrypted PDF (no password)")
+
+        # Forzar lectura para detectar errores temprano
+        _ = reader.getNumPages()
+        return reader, None
+
+    except Exception:
+        # 2) Fallback pikepdf → normalizar y volver a abrir desde archivo
+        
+        fixed_path = normalize_with_pikepdf(pdf_path)
+        
+        temp_files.append(fixed_path)
+
+        reader = PdfFileReader(fixed_path, strict=False)
+        if reader.isEncrypted:
+            try:
+                reader.decrypt("")
+            except Exception:
+                # si sigue encriptado, no podemos proceder sin password
+                raise Exception(f"PDF protegido con contraseña no disponible: {os.path.basename(pdf_path)}")
+
+        _ = reader.getNumPages()
+        return reader, fixed_path
 
 def leer_pdf(pdf_path):
     # Read PDF File with PDFMiner
@@ -157,6 +238,9 @@ def leer_pdf(pdf_path):
     output_str.close()
 
     return text   
+
+
+
 
 """
     Obtengo el modulo que fueron invocados
@@ -222,29 +306,46 @@ try:
 
         input_ = GetParams("pdfs_folder")
         output = GetParams("output_folder")
+        
+        
+        if os.path.isdir(output):
+            output = os.path.join(output, "merge.pdf")
 
-
+        # Si no termina en .pdf, lo agregamos
+        if not output.lower().endswith(".pdf"):
+            output += ".pdf"
+        
         pdf_writer = PdfFileWriter()
+
         pdfs = glob.glob(input_ + os.sep + "*.pdf")
         pdfs.sort()
+        
+        temp_files = []
+        
+        
+        try:
+            for pdf in pdfs:
+                pdf = pdf.replace("\\", "/")
+                pdf_reader, _tmp = open_reader_with_fallback(pdf)
 
-        for pdf in pdfs:
+                for page in range(pdf_reader.getNumPages()):
+                    pdf_writer.addPage(pdf_reader.getPage(page))
 
-            pdf = pdf.replace("\\", "/")
-
-            with open(pdf, 'rb') as p:
-                mod_txt = (p.readlines())
-
-            txtx = reset_eof_of_pdf_return_stream(mod_txt)
-
-            with open(pdf, 'wb') as f:
-                f.writelines(txtx)
-            pdf_reader = PdfFileReader(pdf, strict=False)
-            for page in range(pdf_reader.getNumPages()):
-                pdf_writer.addPage(pdf_reader.getPage(page))
-
-            with open(output, 'wb') as fh:
+            # escribir SOLO UNA VEZ al final
+            with open(output, "wb") as fh:
                 pdf_writer.write(fh)
+
+            SetVar(GetParams("res"), output)
+
+        finally:
+            # limpiar temporales
+            for t in temp_files:
+                try:
+                    os.remove(t)
+                except:
+                    pass
+        
+        
                 
     if module == "encrypt_pdf":
         path = GetParams("path")
