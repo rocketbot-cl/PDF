@@ -46,8 +46,6 @@ if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
 elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
     sys.path.append(cur_path_x86)
 
-    
-
 
 from PyPDF3 import PdfFileReader, PdfFileWriter
 import fitz
