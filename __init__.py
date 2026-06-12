@@ -27,6 +27,7 @@ import os
 import sys
 import glob
 import traceback
+import platform
 from subprocess import Popen as Ppen
 from subprocess import PIPE as PPE
 
@@ -38,13 +39,16 @@ tmp_global_obj = tmp_global_obj #pylint: disable=undefined-variable,self-assigni
 base_path = tmp_global_obj["basepath"] # pylint: disable=undefined-variable
 cur_path = base_path + 'modules' + os.sep + 'PDF' + os.sep + 'libs' + os.sep
 
-cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
-cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
+system_name = platform.system().lower()
 
-if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
-    sys.path.append(cur_path_x64)
-elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
-    sys.path.append(cur_path_x86)
+if system_name == "windows":
+    cur_path_platform = os.path.join(cur_path, 'Windows', 'x64' if sys.maxsize > 2**32 else 'x86')
+
+elif system_name == "darwin":
+    cur_path_platform = os.path.join(cur_path, 'macos' + os.sep)
+
+if cur_path_platform not in sys.path:
+    sys.path.append(cur_path_platform)
 
 
 from PyPDF3 import PdfFileReader, PdfFileWriter
