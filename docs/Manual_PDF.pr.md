@@ -153,3 +153,13 @@ Rota as páginas que se indiquem de um PDF
 |PDF para salvar|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.html|
 |Grados para girar|Por padrão 90 graus para a direita. 180 para inverter, 270 para a esquerda.|90|
 |Páginas|Página ou páginas para girar|2, 3-5|
+
+### Extrair anexos
+  
+Este comando permite extrair anexos de um arquivo PDF.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|PDF|Caminho onde o PDF está localizado.|C:/Users/User/Downloads/sample.pdf|
+|Senha|Senha para o PDF.|s3cr3t-p4ss|
+|Salvar anexo|Caminho onde o anexo será salvo.|C:/Users/User/Downloads/output.pdf|
+|Atribuir resultado à variável|Variável para salvar o anexo do PDF.|Anexo Extraido|

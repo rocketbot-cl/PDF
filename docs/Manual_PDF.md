@@ -153,3 +153,13 @@ Rotate specified pages of a PDF
 |PDF to save|Path and name where the HTML file will be saved|C:/Users/User/Downloads/sample.html|
 |Degrees to rotate|By default 90 degrees to the right. 180 to reverse, 270 to the left.|90|
 |Pages|Page or pages to rotate.|2, 3-5|
+
+### Extract Attachments
+  
+This command allows you to extract attachments from a PDF file.
+|Parameters|Description|example|
+| --- | --- | --- |
+|PDF|Path where the PDF is located.|C:/Users/User/Downloads/sample.pdf|
+|Password|Password to the PDF.|s3cr3t-p4ss|
+|Save attachment|Path where the attachment will be saved.|C:/Users/User/Downloads/output.pdf|
+|Assign result to variable|Variable to save the attachment of the PDF.|Attachment Extracted|
