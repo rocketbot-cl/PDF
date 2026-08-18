@@ -27,6 +27,7 @@ import os
 import sys
 import glob
 import traceback
+import platform
 from subprocess import Popen as Ppen
 from subprocess import PIPE as PPE
 
@@ -38,15 +39,16 @@ tmp_global_obj = tmp_global_obj #pylint: disable=undefined-variable,self-assigni
 base_path = tmp_global_obj["basepath"] # pylint: disable=undefined-variable
 cur_path = base_path + 'modules' + os.sep + 'PDF' + os.sep + 'libs' + os.sep
 
-cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
-cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
+system_name = platform.system().lower()
 
-if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
-    sys.path.append(cur_path_x64)
-elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
-    sys.path.append(cur_path_x86)
+if system_name == "windows":
+    cur_path_platform = os.path.join(cur_path, 'Windows', 'x64' if sys.maxsize > 2**32 else 'x86')
 
-    
+elif system_name == "darwin":
+    cur_path_platform = os.path.join(cur_path, 'macos' + os.sep)
+
+if cur_path_platform not in sys.path:
+    sys.path.append(cur_path_platform)
 
 
 from PyPDF3 import PdfFileReader, PdfFileWriter
@@ -745,3 +747,65 @@ except Exception as e:
     traceback.print_exc()
     PrintException()
     raise e
+
+if module == "extract_attachments":
+        path = GetParams("path")
+        out = GetParams("out")
+        password = GetParams("pass")
+        result_var = GetParams("result")
+        extracted_files = []
+
+        try:
+            # Abrir el PDF con fitz manejando contraseña si la tiene
+            doc = fitz.open(path)
+            
+            if doc.is_encrypted:
+                if password:
+                    success = doc.authenticate(password)
+                    if not success:
+                        raise Exception("Contraseña incorrecta para el PDF.")
+                else:
+                    raise Exception("El PDF está protegido con contraseña pero no se proporcionó ninguna.")
+
+            # Obtener la lista de archivos incrustados en el PDF
+            embed_count = doc.embfile_count()
+            
+            if embed_count == 0:
+                doc.close()
+                raise Exception("El PDF no contiene archivos adjuntos.")
+
+            # Si 'out' es una carpeta, asegurarnos de que exista
+            if os.path.isdir(out) or not os.path.splitext(out)[1]:
+                if not os.path.exists(out):
+                    os.makedirs(out)
+                is_folder = True
+            else:
+                is_folder = False
+
+            for i in range(embed_count):
+                # Obtiene la información del archivo adjunto
+                info = doc.embfile_info(i)
+                filename = info.get("filename", f"attachment_{i+1}.dat")
+                
+                # Extrae los bytes del archivo adjunto
+                file_bytes = doc.embfile_get(i)
+                
+                # Definir la ruta final de salida para este archivo específico
+                if is_folder:
+                    output_file_path = os.path.join(out, filename)
+                else:
+                    # Si especificaron un archivo directo y es el único, o se sobrescribirá
+                    output_file_path = out if embed_count == 1 else f"{os.path.splitext(out)[0]}_{i+1}{os.path.splitext(out)[1]}"
+                
+                with open(output_file_path, "wb") as f:
+                    f.write(file_bytes)
+                    
+                extracted_files.append(output_file_path)
+
+            doc.close()
+            SetVar(result_var, extracted_files)
+            
+
+        except Exception as e:
+            PrintException()
+            raise e

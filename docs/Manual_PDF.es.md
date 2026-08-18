@@ -153,3 +153,13 @@ Rota las paginas que se indiquen de un PDF
 |PDF a guardar|Ruta y nombre donde se guardará el archivo HTML|C:/Users/User/Downloads/sample.html|
 |Grados a girar|Por defecto 90 grados, gira hacia la derecha. 180 para girar al reves, 270 para girar a la izquierda.|90|
 |Paginas|Página o páginas a rotar. Dejar vacío para rotar todo.|2, 3-5|
+
+### Extraer archivos adjuntos
+  
+Este comando permite extraer archivos adjuntos de un archivo PDF.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|PDF|Ruta donde se encuentra el PDF.|C:/Users/User/Downloads/sample.pdf|
+|Clave|Clave de el PDF.|s3cr3t-p4ss|
+|Guardar archivo adjunto|Ruta donde guardará el adjunto.|C:/Users/User/Downloads/output.pdf|
+|Asignar resultado a la variable|Variable para guardar adjunto del PDF.|Adjunto Extraido|

@@ -58,7 +58,10 @@ Agrega una imagen a un PDF en la página y coordenadas ingresadas.
 Este comando permite leer un PDF y guardarlo como HTML.
 
 14. Rotar PDF  
-Rota las paginas que se indiquen de un PDF  
+Rota las paginas que se indiquen de un PDF
+
+15. Extraer archivos adjuntos  
+Este comando permite extraer archivos adjuntos de un archivo PDF.  
 
 
 

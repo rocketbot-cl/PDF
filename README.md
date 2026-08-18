@@ -58,7 +58,10 @@ Adds an image to a PDF on the page and coordinates entered.
 This command allows you to read a PDF and save it as HTML.
 
 14. Rotate PDF  
-Rotate specified pages of a PDF  
+Rotate specified pages of a PDF
+
+15. Extract Attachments  
+This command allows you to extract attachments from a PDF file.  
 
 
 
